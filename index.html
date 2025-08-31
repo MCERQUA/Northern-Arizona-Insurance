@@ -1,0 +1,333 @@
+:root {
+  --primary: #3A7D44;
+  --secondary: #C17E5A;
+  --accent: #E97438;
+  --bg: #E9D8BF;
+  --surface: #D3B89C;
+  --ink: #1E2A44;
+}
+
+/* Minimal reset */
+*{box-sizing:border-box} html,body{margin:0;padding:0} img{max-width:100%;display:block}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.55}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.1rem;border-radius:14px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer}
+.btn-accent{background:var(--accent);color:#fff}
+.btn-accent:hover{filter:brightness(0.95)}
+.btn-outline{border-color:var(--primary);color:var(--primary)}
+.btn-outline:hover{background:color-mix(in oklab, var(--primary), #fff 88%)}
+
+.announce{background:var(--secondary);color:#fff;font-size:.95rem}
+.announce .container{display:flex;align-items:center;justify-content:space-between;padding:.6rem 24px}
+.announce a{color:#fff;text-decoration:underline;text-underline-offset:4px}
+
+.header{backdrop-filter:saturate(160%) blur(6px);background:color-mix(in oklab,#fff,transparent 60%);position:sticky;top:0;z-index:20;border-bottom:1px solid #0001}
+.header .inner{display:flex;align-items:center;justify-content:space-between;padding:18px 24px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-badge{height:36px;width:36px;border-radius:12px;background:var(--primary);display:grid;place-items:center;box-shadow:0 0 0 2px #00000010 inset;color:#fff;font-weight:800}
+.nav{display:none;gap:22px}
+@media (min-width: 768px){.nav{display:flex}} 
+.nav a{color:inherit;text-decoration:none}
+.nav a:hover{opacity:.75}
+
+.hero{position:relative;overflow:hidden}
+.glow-a,.glow-b{position:absolute;border-radius:9999px;filter:blur(70px);opacity:.6;pointer-events:none}
+.glow-a{top:-90px;left:-90px;width:350px;height:350px;background:radial-gradient(circle at center, color-mix(in oklab,var(--accent),#fff 40%), transparent 60%)}
+.glow-b{right:-120px;bottom:-140px;width:460px;height:460px;background:radial-gradient(circle at center, color-mix(in oklab,var(--secondary),#fff 35%), transparent 60%)}
+
+.hero .content{display:grid;gap:40px;grid-template-columns:1fr}
+@media (min-width: 900px){.hero .content{grid-template-columns:1.2fr .8fr}}
+.kicker{
+  display:inline-flex;align-items:center;gap:8px;background:color-mix(in oklab,var(--surface),#fff 15%);
+  padding:6px 10px;border-radius:999px;font-size:.8rem;border:1px solid #0001
+}
+.h1{font-size:clamp(32px,4vw,48px);font-weight:900;line-height:1.1;margin:12px 0}
+.lead{font-size:1.08rem;opacity:.9;margin:.6rem 0 0}
+.pills{display:flex;flex-wrap:wrap;gap:18px;margin-top:18px;font-size:.95rem;align-items:center}
+.pill{display:flex;align-items:center;gap:8px}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%}
+
+.card{background:color-mix(in oklab,var(--surface),#fff 10%);border:1px solid #0001;border-radius:18px;
+box-shadow:0 10px 30px -12px rgba(0,0,0,.15);padding:22px}
+.form input,.form select,.form textarea{width:100%;border:1px solid #0002;background:#ffffffE6;padding:12px 14px;border-radius:12px;outline:none}
+.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px color-mix(in oklab,var(--primary),#fff 70%)}
+.form button{margin-top:6px}
+
+.section{padding:60px 0}
+.section.alt{background:color-mix(in oklab,#fff, var(--bg) 40%);border-top:1px solid #0001;border-bottom:1px solid #0001}
+
+.section h2{font-size:clamp(26px,3vw,36px);margin:0}
+.section .topline{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-end}
+.grid{display:grid;gap:16px}
+@media (min-width:700px){.grid.cols-2{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1024px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
+
+.service{transition:box-shadow .2s ease, transform .2s ease}
+.service:hover{box-shadow:0 12px 34px -16px rgba(0,0,0,.25);transform:translateY(-2px)}
+.service .arrow{display:inline-grid;place-items:center;height:36px;width:36px;border-radius:12px;background:var(--accent);color:#fff;font-weight:800}
+.service .bar{height:4px;width:33%;border-radius:99px;background:var(--primary);transition:width .25s ease}
+.service:hover .bar{width:50%}
+
+.industry-list{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:10px}
+.badge{display:inline-grid;place-items:center;height:10px;width:10px;border-radius:50%;background:var(--primary)}
+.sub-card{margin-top:18px;background:#fffB;border:1px solid #0001;border-radius:14px;padding:12px}
+
+.cta{background:var(--secondary);color:#fff;border-radius:22px;padding:24px;display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.footer{background:var(--primary);color:#fff;margin-top:28px}
+.footer .cols{display:grid;gap:24px;padding:40px 0}
+@media (min-width:860px){.footer .cols{grid-template-columns:2fr 1fr 1fr 1fr}}
+.footer a{color:#fff;text-decoration:none}
+.footer .copy{border-top:1px solid #ffffff33;text-align:center;padding:14px 0;color:#fffCC}
+
+.color-chips{position:fixed;right:16px;bottom:16px;display:none;gap:8px}
+@media (min-width:640px){.color-chips{display:flex}}
+.color-chip{border-radius:12px;overflow:hidden;box-shadow:0 6px 14px -8px rgba(0,0,0,.3)}
+.color-chip .sw{height:24px;width:42px}
+.color-chip .lb{background:#fff;font-size:10px;line-height:1;padding:6px 8px;color:#000C}
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Northern Arizona Insurance — Saguaro Sunset</title>
+  <meta name="description" content="Cactus‑tough coverage with human service. Arizona‑focused insurance for contractors, barndominiums, and small business.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='#3A7D44'/%3E%3Ctext x='50%' y='55%' text-anchor='middle' font-size='28' font-family='Arial' fill='white'%3ENAI%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <style>/* gradient stripe between sections */ .stripe{height:8px;background:linear-gradient(90deg,var(--primary),var(--secondary),var(--accent))}</style>
+</head>
+<body>
+  <div class="announce">
+    <div class="container">
+      <span>Licensed across Arizona • Same‑day certificates for contractors</span>
+      <a href="#quote">Get a fast quote</a>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container inner">
+      <div class="logo">
+        <div class="logo-badge">NAI</div>
+        <div>
+          <div style="font-weight:800;letter-spacing:.4px">Northern Arizona Insurance</div>
+          <div style="font-size:12px;opacity:.7">Protecting what you build</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#services">Services</a>
+        <a href="#industries">Industries</a>
+        <a href="#about">About</a>
+        <a href="#resources">Resources</a>
+      </nav>
+      <div style="display:flex;gap:8px;align-items:center">
+        <a class="btn btn-outline" href="tel:+1-000-000-0000">Call</a>
+        <a class="btn btn-accent" href="#quote">Get a Quote</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="glow-a"></div><div class="glow-b"></div>
+      <div class="container content">
+        <div>
+          <div class="kicker">
+            <span class="dot" style="background:var(--primary)"></span>
+            Arizona‑focused coverage • Contractors • Barndominiums • General Liability
+          </div>
+          <h1 class="h1">Insurance that fits the <span style="color:var(--primary)">desert</span> — with service that feels like <span style="color:var(--accent)">high‑noon straight‑shooting</span>.</h1>
+          <p class="lead">From Sedona red rock to Sonoran sand, we tailor policies for builders, homeowners, and small businesses across Arizona.</p>
+          <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
+            <a class="btn btn-accent" href="#quote">Start my quote</a>
+            <a class="btn btn-outline" href="#services">Explore services</a>
+          </div>
+          <div class="pills">
+            <div class="pill"><span class="dot" style="background:var(--primary)"></span> AZ‑licensed experts</div>
+            <div class="pill"><span class="dot" style="background:var(--secondary)"></span> Same‑day certificates</div>
+            <div class="pill"><span class="dot" style="background:var(--accent)"></span> Claims advocacy</div>
+          </div>
+        </div>
+        <div id="quote" class="card">
+          <h2 style="margin:0;font-size:26px;font-weight:800">Get your desert‑ready quote</h2>
+          <p style="margin:.2rem 0 1rem;opacity:.8;font-size:.95rem">Tell us a bit about you. We’ll follow up with options that actually fit.</p>
+          <form class="form" onsubmit="event.preventDefault(); alert('Demo form — connect to your CRM/email.');">
+            <label><span class="sr-only">Full name</span><input placeholder="Full name"></label>
+            <div style="display:grid;gap:12px;grid-template-columns:1fr">
+              <label><span class="sr-only">Email</span><input placeholder="Email"></label>
+              <label><span class="sr-only">Phone</span><input placeholder="Phone"></label>
+            </div>
+            <label>
+              <select>
+                <option>What do you need coverage for?</option>
+                <option>General Liability (Contractors)</option>
+                <option>Barndominium / Specialty Home</option>
+                <option>Commercial Auto</option>
+                <option>Workers’ Comp</option>
+                <option>Other / Not sure</option>
+              </select>
+            </label>
+            <label><textarea rows="3" placeholder="Anything we should know?"></textarea></label>
+            <button class="btn btn-accent" type="submit">Get my quote</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section alt">
+      <div class="container">
+        <div class="topline">
+          <div>
+            <h2>Coverage made for the Southwest</h2>
+            <p style="opacity:.8;margin:.3rem 0 0">Built around your projects, property, and people.</p>
+          </div>
+          <a class="btn" style="background:var(--primary);color:#fff" href="#quote">Get a quote</a>
+        </div>
+
+        <div class="grid cols-3" style="margin-top:18px">
+          
+          <div class="card service">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <h3 style="margin:0;font-size:1.05rem;font-weight:800">General Liability</h3>
+              <span class="arrow">→</span>
+            </div>
+            <p style="margin:.4rem 0 0;opacity:.8;font-size:.95rem">Certificates fast, coverage that satisfies GC & permit requirements.</p>
+            <div class="bar" style="margin-top:14px"></div>
+          </div>
+          <div class="card service">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <h3 style="margin:0;font-size:1.05rem;font-weight:800">Barndominium & Specialty Homes</h3>
+              <span class="arrow">→</span>
+            </div>
+            <p style="margin:.4rem 0 0;opacity:.8;font-size:.95rem">Tailored property coverage for unique builds, rural or urban fringe.</p>
+            <div class="bar" style="margin-top:14px"></div>
+          </div>
+          <div class="card service">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <h3 style="margin:0;font-size:1.05rem;font-weight:800">Contractor Packages</h3>
+              <span class="arrow">→</span>
+            </div>
+            <p style="margin:.4rem 0 0;opacity:.8;font-size:.95rem">Tools & equipment, inland marine, commercial auto—one place.</p>
+            <div class="bar" style="margin-top:14px"></div>
+          </div>
+          <div class="card service">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <h3 style="margin:0;font-size:1.05rem;font-weight:800">Workers’ Comp</h3>
+              <span class="arrow">→</span>
+            </div>
+            <p style="margin:.4rem 0 0;opacity:.8;font-size:.95rem">Protect your crew with compliant, right‑sized policies.</p>
+            <div class="bar" style="margin-top:14px"></div>
+          </div>
+          <div class="card service">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <h3 style="margin:0;font-size:1.05rem;font-weight:800">Commercial Auto</h3>
+              <span class="arrow">→</span>
+            </div>
+            <p style="margin:.4rem 0 0;opacity:.8;font-size:.95rem">From pickups to box trucks, keep your wheels covered.</p>
+            <div class="bar" style="margin-top:14px"></div>
+          </div>
+          <div class="card service">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <h3 style="margin:0;font-size:1.05rem;font-weight:800">Bonding</h3>
+              <span class="arrow">→</span>
+            </div>
+            <p style="margin:.4rem 0 0;opacity:.8;font-size:.95rem">Performance, payment, and permit bonds for AZ jobs.</p>
+            <div class="bar" style="margin-top:14px"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="stripe"></div>
+
+    <section id="industries" class="section">
+      <div class="container" style="display:grid;gap:24px;grid-template-columns:1fr;align-items:center">
+        <div class="card">
+          <h2 style="margin:0;font-size:26px;font-weight:800">Built for Arizona industries</h2>
+          <ul class="industry-list">
+            <li style='display:flex;gap:10px;align-items:center'><span class='badge'></span><span>General Contractors</span></li>
+            <li style='display:flex;gap:10px;align-items:center'><span class='badge'></span><span>Roofing & Siding</span></li>
+            <li style='display:flex;gap:10px;align-items:center'><span class='badge'></span><span>Concrete & Masonry</span></li>
+            <li style='display:flex;gap:10px;align-items:center'><span class='badge'></span><span>HVAC & Electrical</span></li>
+            <li style='display:flex;gap:10px;align-items:center'><span class='badge'></span><span>Agriculture & Ranch</span></li>
+            <li style='display:flex;gap:10px;align-items:center'><span class='badge'></span><span>Manufacturing & Warehousing</span></li>
+          </ul>
+          <div class="sub-card">
+            <div style="font-weight:700">Why us</div>
+            <p style="opacity:.85;margin:.3rem 0 0">Local expertise, responsive service, and policies that match real‑world job requirements in AZ heat, dust, and distance.</p>
+          </div>
+        </div>
+        <div class="card" style="padding:0;overflow:hidden">
+          <div style="aspect-ratio:16/10;background:linear-gradient(135deg,var(--secondary), var(--surface) 55%, var(--accent))"></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;background:#fffCC;padding:12px 16px">
+            <div>
+              <div style="font-weight:700;font-size:.95rem">Same‑day COIs</div>
+              <div style="font-size:.85rem;opacity:.8">Most certificates issued within business hours.</div>
+            </div>
+            <a class="btn" style="background:var(--primary);color:#fff" href="#quote">Request now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta">
+          <div>
+            <div style="font-size:1.4rem;font-weight:800">Ready to protect your desert build?</div>
+            <div style="opacity:.92">We’ll compare carriers and bring back clear options—no dust, no spin.</div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn" style="background:#fff;color:var(--ink)" href="#quote">Start my quote</a>
+            <a class="btn" style="border-color:#fff;color:#fff" href="tel:+1-000-000-0000">Call now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container cols">
+      <div>
+        <div style="font-size:1.1rem;font-weight:800">Northern Arizona Insurance</div>
+        <p style="margin:.4rem 0 0;opacity:.9">Cactus‑tough coverage. Human service.</p>
+      </div>
+      <div>
+        <div style="font-weight:700;margin-bottom:8px">Services</div>
+        <div style="opacity:.9;font-size:.95rem">General Liability<br>Workers’ Comp<br>Commercial Auto<br>Property & Equipment</div>
+      </div>
+      <div>
+        <div style="font-weight:700;margin-bottom:8px">Company</div>
+        <div style="opacity:.9;font-size:.95rem">About<br>Resources<br>Contact</div>
+      </div>
+      <div>
+        <div style="font-weight:700;margin-bottom:8px">Contact</div>
+        <div style="opacity:.9;font-size:.95rem">Arizona, USA<br>support@nainsurance.example<br>(000) 000‑0000</div>
+        <div style="margin-top:10px"><a class="btn" style="background:#fff;color:var(--ink)" href="#quote">Get a quote</a></div>
+      </div>
+    </div>
+    <div class="copy">© 2025 Northern Arizona Insurance. All rights reserved.</div>
+  </footer>
+
+  <div class="color-chips">
+    <div class='color-chip'><div class='sw' style='background:var(--primary)'></div><div class='lb'>Primary</div></div>
+    <div class='color-chip'><div class='sw' style='background:var(--secondary)'></div><div class='lb'>Secondary</div></div>
+    <div class='color-chip'><div class='sw' style='background:var(--accent)'></div><div class='lb'>Accent</div></div>
+    <div class='color-chip'><div class='sw' style='background:var(--surface)'></div><div class='lb'>Surface</div></div>
+    <div class='color-chip'><div class='sw' style='background:var(--ink)'></div><div class='lb'>Ink</div></div>
+    <div class='color-chip'><div class='sw' style='background:var(--bg)'></div><div class='lb'>Bg</div></div>
+  </div>
+
+  <script>
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const href = a.getAttribute('href');
+      if(href && href.length > 1) {
+        const target = document.querySelector(href);
+        if(target) { e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
+      }
+    });
+  });
+  </script>
+</body>
+</html>
