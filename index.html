@@ -730,13 +730,20 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
         <option value="spring">Spring Meadow</option>
         <option value="autumn">Autumn Harvest</option>
         <option value="nordic">Nordic Frost</option>
-        <option value="tropical">Tropical Paradise</option>
         <option value="vintage">Vintage Charm</option>
-        <option value="neon">Neon Lights</option>
-        <option value="royal">Royal Purple</option>
         <option value="earth">Earth Tones</option>
         <option value="corporate">Corporate Blue</option>
         <option value="retro">Retro Orange</option>
+        <optgroup label="Professional Business">
+          <option value="steelConstruction">Steel Construction</option>
+          <option value="trustInsurance">Trust Insurance</option>
+          <option value="executiveSuite">Executive Suite</option>
+          <option value="industrialPro">Industrial Pro</option>
+          <option value="leadMaster">Lead Master</option>
+          <option value="contractorPro">Contractor Pro</option>
+          <option value="professionalServices">Professional Services</option>
+          <option value="businessElite">Business Elite</option>
+        </optgroup>
         <optgroup label="2025 Trending">
           <option value="mochaMousse">Mocha Mousse (Pantone 2025)</option>
           <option value="aquaticWonder">Aquatic Wonder</option>
@@ -974,14 +981,6 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
       surface: '#E5E9F0',
       ink: '#2E3440'
     },
-    tropical: {
-      primary: '#00BFA5',
-      secondary: '#FF6B6B',
-      accent: '#FFD93D',
-      bg: '#F8F9FA',
-      surface: '#E3F2FD',
-      ink: '#212529'
-    },
     vintage: {
       primary: '#8B4513',
       secondary: '#CD853F',
@@ -989,22 +988,6 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
       bg: '#FFF8DC',
       surface: '#F5DEB3',
       ink: '#3E2723'
-    },
-    neon: {
-      primary: '#FF1744',
-      secondary: '#00E676',
-      accent: '#FFEA00',
-      bg: '#121212',
-      surface: '#1E1E1E',
-      ink: '#FFFFFF'
-    },
-    royal: {
-      primary: '#4B0082',
-      secondary: '#663399',
-      accent: '#FFD700',
-      bg: '#F8F8FF',
-      surface: '#E6E6FA',
-      ink: '#1A0033'
     },
     earth: {
       primary: '#8B4513',
@@ -1070,6 +1053,71 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
       bg: '#F3F9FF',  // Alice blue
       surface: '#E1F5FE',  // Pale blue
       ink: '#0D47A1'  // Navy
+    },
+    // Professional Business Themes
+    steelConstruction: {
+      primary: '#455A64',  // Blue-grey steel
+      secondary: '#78909C',  // Light steel
+      accent: '#FF6F00',  // Safety orange
+      bg: '#FAFAFA',  // Light grey
+      surface: '#ECEFF1',  // Cool grey
+      ink: '#263238'  // Dark steel
+    },
+    trustInsurance: {
+      primary: '#003D82',  // Trust blue
+      secondary: '#0056B3',  // Medium blue
+      accent: '#00A651',  // Confidence green
+      bg: '#F8F9FA',  // Light grey
+      surface: '#E3E8ED',  // Pale blue-grey
+      ink: '#1A1F2E'  // Dark navy
+    },
+    executiveSuite: {
+      primary: '#2C3E50',  // Executive charcoal
+      secondary: '#34495E',  // Slate grey
+      accent: '#B8860B',  // Executive gold
+      bg: '#FAFAFA',  // Crisp white
+      surface: '#ECF0F1',  // Light grey
+      ink: '#1A252F'  // Deep charcoal
+    },
+    industrialPro: {
+      primary: '#37474F',  // Industrial grey
+      secondary: '#546E7A',  // Blue steel
+      accent: '#FF8F00',  // Industrial amber
+      bg: '#F5F5F5',  // Light grey
+      surface: '#E0E0E0',  // Medium grey
+      ink: '#212121'  // Dark grey
+    },
+    leadMaster: {
+      primary: '#0052CC',  // Lead blue
+      secondary: '#0747A6',  // Deep blue
+      accent: '#FF5722',  // Conversion orange
+      bg: '#FFFFFF',  // Pure white
+      surface: '#F4F5F7',  // Light grey
+      ink: '#172B4D'  // Dark blue
+    },
+    contractorPro: {
+      primary: '#424242',  // Professional grey
+      secondary: '#616161',  // Medium grey
+      accent: '#FFC107',  // Construction yellow
+      bg: '#FAFAFA',  // Light grey
+      surface: '#F5F5F5',  // Soft grey
+      ink: '#212121'  // Dark grey
+    },
+    professionalServices: {
+      primary: '#1A237E',  // Professional navy
+      secondary: '#3949AB',  // Service blue
+      accent: '#757575',  // Silver accent
+      bg: '#FFFFFF',  // Clean white
+      surface: '#F5F5F5',  // Light grey
+      ink: '#0D1842'  // Deep navy
+    },
+    businessElite: {
+      primary: '#37474F',  // Elite slate
+      secondary: '#455A64',  // Steel blue
+      accent: '#00695C',  // Emerald accent
+      bg: '#FAFBFC',  // Premium white
+      surface: '#ECEFF1',  // Soft grey
+      ink: '#1C2833'  // Rich black
     }
   };
 
