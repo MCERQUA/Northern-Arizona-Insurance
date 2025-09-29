@@ -723,33 +723,37 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
       <div style="margin-bottom: 20px;">
         <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #444; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">Select Theme</label>
       <select id="theme-selector" style="width: 100%; padding: 8px 12px; border: 1px solid #ddd; border-radius: 8px; background: white; cursor: pointer;">
-        <option value="default">Saguaro Sunset (Default)</option>
-        <option value="ocean">Ocean Breeze</option>
-        <option value="forest">Forest Mist</option>
-        <option value="midnight">Midnight Sky</option>
-        <option value="spring">Spring Meadow</option>
-        <option value="autumn">Autumn Harvest</option>
-        <option value="nordic">Nordic Frost</option>
-        <option value="vintage">Vintage Charm</option>
-        <option value="earth">Earth Tones</option>
-        <option value="corporate">Corporate Blue</option>
-        <option value="retro">Retro Orange</option>
-        <optgroup label="Professional Business">
-          <option value="steelConstruction">Steel Construction</option>
-          <option value="trustInsurance">Trust Insurance</option>
-          <option value="executiveSuite">Executive Suite</option>
-          <option value="industrialPro">Industrial Pro</option>
-          <option value="leadMaster">Lead Master</option>
-          <option value="contractorPro">Contractor Pro</option>
+        <optgroup label="Service Industries">
+          <option value="desertLandscape">Desert Landscape</option>
+          <option value="marineServices">Marine Services</option>
+          <option value="environmentalConsulting">Environmental Consulting</option>
+          <option value="financialAdvisory">Financial Advisory</option>
+          <option value="landscapingPro">Landscaping Pro</option>
+          <option value="homeRenovation">Home Renovation</option>
+          <option value="poolServices">Pool Services</option>
+          <option value="gardenCenter">Garden Center</option>
+          <option value="ecoBusiness">Eco Business</option>
+          <option value="healthcarePractice">Healthcare Practice</option>
+        </optgroup>
+        <optgroup label="Professional Services">
+          <option value="techStartup">Tech Startup</option>
+          <option value="craftBusiness">Craft Business</option>
+          <option value="constructionCompany">Construction Company</option>
+          <option value="lawFirmClassic">Law Firm Classic</option>
+          <option value="creativeAgency">Creative Agency</option>
+          <option value="coffeeShop">Coffee Shop (2025)</option>
           <option value="professionalServices">Professional Services</option>
           <option value="businessElite">Business Elite</option>
+          <option value="executiveSuite">Executive Suite</option>
         </optgroup>
-        <optgroup label="2025 Trending">
-          <option value="mochaMousse">Mocha Mousse (Pantone 2025)</option>
-          <option value="aquaticWonder">Aquatic Wonder</option>
-          <option value="fernGarden">Fern Garden</option>
-          <option value="viridianNature">Viridian Nature</option>
-          <option value="airyBlue">Airy Blue Sky</option>
+        <optgroup label="Contractors & Industrial">
+          <option value="steelConstruction">Steel Construction</option>
+          <option value="industrialPro">Industrial Pro</option>
+          <option value="contractorPro">Contractor Pro</option>
+        </optgroup>
+        <optgroup label="Insurance & Finance">
+          <option value="trustInsurance">Trust Insurance</option>
+          <option value="leadMaster">Lead Master</option>
         </optgroup>
       </select>
     </div>
@@ -925,7 +929,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
 
   // Color Themes
   const themes = {
-    default: {
+    desertLandscape: {
       primary: '#3A7D44',
       secondary: '#C17E5A',
       accent: '#E97438',
@@ -933,7 +937,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
       surface: '#D3B89C',
       ink: '#1E2A44'
     },
-    ocean: {
+    marineServices: {
       primary: '#006994',
       secondary: '#00A8CC',
       accent: '#FDB44B',
@@ -941,7 +945,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
       surface: '#B8D4E3',
       ink: '#003049'
     },
-    forest: {
+    environmentalConsulting: {
       primary: '#2D5F3F',
       secondary: '#5C8A3A',
       accent: '#E0A458',
@@ -949,7 +953,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
       surface: '#D4CFC0',
       ink: '#1A1A1A'
     },
-    midnight: {
+    financialAdvisory: {
       primary: '#1E3A5F',
       secondary: '#4A6FA5',
       accent: '#E0A458',
@@ -957,7 +961,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
       surface: '#D6D6D6',
       ink: '#0D1B2A'
     },
-    spring: {
+    landscapingPro: {
       primary: '#7FB069',
       secondary: '#E6AA68',
       accent: '#CA3C25',
@@ -965,7 +969,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
       surface: '#E8DCC0',
       ink: '#2C3E2E'
     },
-    autumn: {
+    homeRenovation: {
       primary: '#A44200',
       secondary: '#D66853',
       accent: '#8B2C0B',
@@ -973,7 +977,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
       surface: '#F0D9B5',
       ink: '#3E2723'
     },
-    nordic: {
+    techStartup: {
       primary: '#5E81AC',
       secondary: '#81A1C1',
       accent: '#88C0D0',
@@ -981,7 +985,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
       surface: '#E5E9F0',
       ink: '#2E3440'
     },
-    vintage: {
+    craftBusiness: {
       primary: '#8B4513',
       secondary: '#CD853F',
       accent: '#DAA520',
@@ -989,7 +993,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
       surface: '#F5DEB3',
       ink: '#3E2723'
     },
-    earth: {
+    constructionCompany: {
       primary: '#8B4513',
       secondary: '#A0522D',
       accent: '#D2691E',
@@ -997,7 +1001,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
       surface: '#F5E6D3',
       ink: '#3E2723'
     },
-    corporate: {
+    lawFirmClassic: {
       primary: '#003366',
       secondary: '#336699',
       accent: '#0066CC',
@@ -1005,7 +1009,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
       surface: '#F0F4F8',
       ink: '#1A1A1A'
     },
-    retro: {
+    creativeAgency: {
       primary: '#FF6B35',
       secondary: '#F77737',
       accent: '#C9302C',
@@ -1013,8 +1017,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
       surface: '#FFE0B2',
       ink: '#5D4037'
     },
-    // 2025 Trending Color Palettes
-    mochaMousse: {
+    coffeeShop: {
       primary: '#8B6B5C',  // Mocha Mousse (Pantone 2025)
       secondary: '#C4A484',  // Light mocha
       accent: '#D2691E',  // Chocolate
@@ -1022,7 +1025,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
       surface: '#EDE0D4',  // Light coffee
       ink: '#3E2723'  // Dark brown
     },
-    aquaticWonder: {
+    poolServices: {
       primary: '#00ACC1',  // Aquatic Awe
       secondary: '#4DD0E1',  // Light aqua
       accent: '#FF7043',  // Sunset Coral
@@ -1030,7 +1033,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
       surface: '#B2EBF2',  // Light cyan
       ink: '#006064'  // Deep teal
     },
-    fernGarden: {
+    gardenCenter: {
       primary: '#4CAF50',  // Fern green
       secondary: '#81C784',  // Light green
       accent: '#FFA726',  // Ray Flower orange
@@ -1038,7 +1041,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
       surface: '#DCEDC8',  // Light green
       ink: '#1B5E20'  // Dark green
     },
-    viridianNature: {
+    ecoBusiness: {
       primary: '#00897B',  // Viridian Green
       secondary: '#4DB6AC',  // Medium teal
       accent: '#FFD54F',  // Yellow
@@ -1046,7 +1049,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
       surface: '#C8E6C9',  // Light green
       ink: '#004D40'  // Dark teal
     },
-    airyBlue: {
+    healthcarePractice: {
       primary: '#64B5F6',  // Airy Blue
       secondary: '#90CAF9',  // Light blue
       accent: '#FFA726',  // Orange
@@ -1203,8 +1206,8 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
   // Reset link
   document.getElementById('reset-link').addEventListener('click', (e) => {
     e.preventDefault();
-    applyTheme('default');
-    document.getElementById('theme-selector').value = 'default';
+    applyTheme('desertLandscape');
+    document.getElementById('theme-selector').value = 'desertLandscape';
   });
 
   // Close modal function
