@@ -89,11 +89,26 @@ box-shadow:0 10px 30px -12px rgba(0,0,0,.15);padding:22px}
 .footer a{color:#fff;text-decoration:none}
 .footer .copy{border-top:1px solid #ffffff33;text-align:center;padding:14px 0;color:#fffCC}
 
-.color-chips{position:fixed;right:16px;bottom:16px;display:none;gap:8px}
-@media (min-width:640px){.color-chips{display:flex}}
-.color-chip{border-radius:12px;overflow:hidden;box-shadow:0 6px 14px -8px rgba(0,0,0,.3)}
-.color-chip .sw{height:24px;width:42px}
-.color-chip .lb{background:#fff;font-size:10px;line-height:1;padding:6px 8px;color:#000C}
+/* Hide scroll on color panel for better UX */
+#color-picker-panel::-webkit-scrollbar { width: 6px; }
+#color-picker-panel::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+#color-picker-panel::-webkit-scrollbar-thumb { background: #888; border-radius: 10px; }
+#color-picker-panel::-webkit-scrollbar-thumb:hover { background: #555; }
+
+/* Mobile responsive adjustments */
+@media (max-width: 640px) {
+  #color-picker-panel {
+    right: 8px !important;
+    bottom: 8px !important;
+    max-width: calc(100vw - 32px) !important;
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+}
+
+/* Hover effects for buttons */
+#reset-colors:hover { background: #e0e0e0 !important; }
+#toggle-panel:hover { background: #f0f0f0 !important; }
 
 /* gradient stripe between sections */ 
 .stripe{height:8px;background:linear-gradient(90deg,var(--primary),var(--secondary),var(--accent))}
@@ -338,13 +353,79 @@ box-shadow:0 10px 30px -12px rgba(0,0,0,.15);padding:22px}
     <div class="copy">© 2025 Northern Arizona Insurance. All rights reserved.</div>
   </footer>
 
-  <div class="color-chips">
-    <div class='color-chip'><div class='sw' style='background:var(--primary)'></div><div class='lb'>Primary</div></div>
-    <div class='color-chip'><div class='sw' style='background:var(--secondary)'></div><div class='lb'>Secondary</div></div>
-    <div class='color-chip'><div class='sw' style='background:var(--accent)'></div><div class='lb'>Accent</div></div>
-    <div class='color-chip'><div class='sw' style='background:var(--surface)'></div><div class='lb'>Surface</div></div>
-    <div class='color-chip'><div class='sw' style='background:var(--ink)'></div><div class='lb'>Ink</div></div>
-    <div class='color-chip'><div class='sw' style='background:var(--bg)'></div><div class='lb'>Bg</div></div>
+  <!-- Color Picker Panel -->
+  <div id="color-picker-panel" style="position: fixed; right: 16px; bottom: 16px; background: #fff; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); padding: 20px; max-width: 320px; z-index: 100;">
+    <!-- Theme Selector -->
+    <div style="margin-bottom: 20px;">
+      <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #333;">Choose a Theme:</label>
+      <select id="theme-selector" style="width: 100%; padding: 8px 12px; border: 1px solid #ddd; border-radius: 8px; background: white; cursor: pointer;">
+        <option value="default">Saguaro Sunset (Default)</option>
+        <option value="ocean">Ocean Breeze</option>
+        <option value="forest">Forest Mist</option>
+        <option value="sunset">Desert Twilight</option>
+        <option value="midnight">Midnight Sky</option>
+        <option value="spring">Spring Meadow</option>
+        <option value="autumn">Autumn Harvest</option>
+        <option value="monochrome">Monochrome</option>
+      </select>
+    </div>
+
+    <!-- Color Pickers -->
+    <div style="display: grid; gap: 12px;">
+      <div class="color-control" style="display: flex; align-items: center; justify-content: space-between;">
+        <label style="font-size: 14px; color: #555;">Primary</label>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <input type="color" id="color-primary" value="#3A7D44" style="width: 50px; height: 32px; border: 1px solid #ddd; border-radius: 6px; cursor: pointer;">
+          <input type="text" id="text-primary" value="#3A7D44" style="width: 80px; padding: 4px 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 12px;">
+        </div>
+      </div>
+
+      <div class="color-control" style="display: flex; align-items: center; justify-content: space-between;">
+        <label style="font-size: 14px; color: #555;">Secondary</label>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <input type="color" id="color-secondary" value="#C17E5A" style="width: 50px; height: 32px; border: 1px solid #ddd; border-radius: 6px; cursor: pointer;">
+          <input type="text" id="text-secondary" value="#C17E5A" style="width: 80px; padding: 4px 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 12px;">
+        </div>
+      </div>
+
+      <div class="color-control" style="display: flex; align-items: center; justify-content: space-between;">
+        <label style="font-size: 14px; color: #555;">Accent</label>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <input type="color" id="color-accent" value="#E97438" style="width: 50px; height: 32px; border: 1px solid #ddd; border-radius: 6px; cursor: pointer;">
+          <input type="text" id="text-accent" value="#E97438" style="width: 80px; padding: 4px 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 12px;">
+        </div>
+      </div>
+
+      <div class="color-control" style="display: flex; align-items: center; justify-content: space-between;">
+        <label style="font-size: 14px; color: #555;">Background</label>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <input type="color" id="color-bg" value="#E9D8BF" style="width: 50px; height: 32px; border: 1px solid #ddd; border-radius: 6px; cursor: pointer;">
+          <input type="text" id="text-bg" value="#E9D8BF" style="width: 80px; padding: 4px 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 12px;">
+        </div>
+      </div>
+
+      <div class="color-control" style="display: flex; align-items: center; justify-content: space-between;">
+        <label style="font-size: 14px; color: #555;">Surface</label>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <input type="color" id="color-surface" value="#D3B89C" style="width: 50px; height: 32px; border: 1px solid #ddd; border-radius: 6px; cursor: pointer;">
+          <input type="text" id="text-surface" value="#D3B89C" style="width: 80px; padding: 4px 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 12px;">
+        </div>
+      </div>
+
+      <div class="color-control" style="display: flex; align-items: center; justify-content: space-between;">
+        <label style="font-size: 14px; color: #555;">Text (Ink)</label>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <input type="color" id="color-ink" value="#1E2A44" style="width: 50px; height: 32px; border: 1px solid #ddd; border-radius: 6px; cursor: pointer;">
+          <input type="text" id="text-ink" value="#1E2A44" style="width: 80px; padding: 4px 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 12px;">
+        </div>
+      </div>
+    </div>
+
+    <!-- Reset Button -->
+    <button id="reset-colors" style="width: 100%; margin-top: 16px; padding: 10px; background: #f0f0f0; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; font-size: 14px; color: #666; transition: background 0.2s;">Reset to Default</button>
+
+    <!-- Toggle Button for Mobile -->
+    <button id="toggle-panel" style="position: absolute; top: -40px; right: 0; background: white; border: 1px solid #ddd; border-radius: 8px 8px 0 0; padding: 8px 16px; font-size: 12px; cursor: pointer; display: none;">🎨 Colors</button>
   </div>
 
   <script>
@@ -358,12 +439,156 @@ box-shadow:0 10px 30px -12px rgba(0,0,0,.15);padding:22px}
       }
     });
   });
-  
+
   // Check for form submission success
   if(window.location.search.includes('success=true')) {
     document.getElementById('form-success').classList.add('show');
     document.querySelector('form[name="insurance-quote"]').style.display = 'none';
   }
+
+  // Color Themes
+  const themes = {
+    default: {
+      primary: '#3A7D44',
+      secondary: '#C17E5A',
+      accent: '#E97438',
+      bg: '#E9D8BF',
+      surface: '#D3B89C',
+      ink: '#1E2A44'
+    },
+    ocean: {
+      primary: '#006994',
+      secondary: '#00A8CC',
+      accent: '#FDB44B',
+      bg: '#E8F4F8',
+      surface: '#B8D4E3',
+      ink: '#003049'
+    },
+    forest: {
+      primary: '#2D5F3F',
+      secondary: '#5C8A3A',
+      accent: '#E0A458',
+      bg: '#F0EDE5',
+      surface: '#D4CFC0',
+      ink: '#1A1A1A'
+    },
+    sunset: {
+      primary: '#D35545',
+      secondary: '#F18F01',
+      accent: '#C73E1D',
+      bg: '#FCE4D8',
+      surface: '#F5C99B',
+      ink: '#2C1810'
+    },
+    midnight: {
+      primary: '#1E3A5F',
+      secondary: '#4A6FA5',
+      accent: '#E0A458',
+      bg: '#F5F5F5',
+      surface: '#D6D6D6',
+      ink: '#0D1B2A'
+    },
+    spring: {
+      primary: '#7FB069',
+      secondary: '#E6AA68',
+      accent: '#CA3C25',
+      bg: '#FFF8E7',
+      surface: '#E8DCC0',
+      ink: '#2C3E2E'
+    },
+    autumn: {
+      primary: '#A44200',
+      secondary: '#D66853',
+      accent: '#8B2C0B',
+      bg: '#FFF4E6',
+      surface: '#F0D9B5',
+      ink: '#3E2723'
+    },
+    monochrome: {
+      primary: '#333333',
+      secondary: '#666666',
+      accent: '#000000',
+      bg: '#F5F5F5',
+      surface: '#E0E0E0',
+      ink: '#1A1A1A'
+    }
+  };
+
+  // Update CSS variables
+  function updateColor(name, value) {
+    document.documentElement.style.setProperty(`--${name}`, value);
+    // Update color picker and text input
+    const colorInput = document.getElementById(`color-${name}`);
+    const textInput = document.getElementById(`text-${name}`);
+    if (colorInput) colorInput.value = value;
+    if (textInput) textInput.value = value;
+  }
+
+  // Apply theme
+  function applyTheme(themeName) {
+    const theme = themes[themeName];
+    if (theme) {
+      Object.entries(theme).forEach(([key, value]) => {
+        updateColor(key, value);
+      });
+    }
+  }
+
+  // Theme selector
+  document.getElementById('theme-selector').addEventListener('change', (e) => {
+    applyTheme(e.target.value);
+  });
+
+  // Color pickers
+  ['primary', 'secondary', 'accent', 'bg', 'surface', 'ink'].forEach(name => {
+    const colorInput = document.getElementById(`color-${name}`);
+    const textInput = document.getElementById(`text-${name}`);
+
+    // Color picker change
+    colorInput.addEventListener('input', (e) => {
+      updateColor(name, e.target.value);
+      textInput.value = e.target.value;
+    });
+
+    // Text input change
+    textInput.addEventListener('input', (e) => {
+      const value = e.target.value;
+      if (/^#[0-9A-Fa-f]{6}$/.test(value)) {
+        updateColor(name, value);
+        colorInput.value = value;
+      }
+    });
+  });
+
+  // Reset button
+  document.getElementById('reset-colors').addEventListener('click', () => {
+    applyTheme('default');
+    document.getElementById('theme-selector').value = 'default';
+  });
+
+  // Mobile responsiveness for color panel
+  const panel = document.getElementById('color-picker-panel');
+  const toggleBtn = document.getElementById('toggle-panel');
+
+  // Check if mobile
+  function checkMobile() {
+    if (window.innerWidth < 640) {
+      toggleBtn.style.display = 'block';
+      panel.style.display = 'none';
+    } else {
+      toggleBtn.style.display = 'none';
+      panel.style.display = 'block';
+    }
+  }
+
+  // Toggle panel on mobile
+  toggleBtn.addEventListener('click', () => {
+    panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+  });
+
+  // Check on load and resize
+  window.addEventListener('resize', checkMobile);
+  checkMobile();
   </script>
 </body>
 </html>
