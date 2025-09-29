@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Northern Arizona Insurance — Saguaro Sunset</title>
-  <meta name="description" content="Cactus‑tough coverage with human service. Arizona‑focused insurance for contractors, barndominiums, and small business.">
+  <title>ColorCraft — Dynamic Color Palette Generator</title>
+  <meta name="description" content="Create perfect color palettes for your brand. Interactive color picker with live preview, themes, and customization options.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='#3A7D44'/%3E%3Ctext x='50%' y='55%' text-anchor='middle' font-size='28' font-family='Arial' fill='white'%3ENAI%3C/text%3E%3C/svg%3E">
   
   <style>
@@ -121,29 +121,29 @@ box-shadow:0 10px 30px -12px rgba(0,0,0,.15);padding:22px}
 <body>
   <div class="announce">
     <div class="container">
-      <span>Licensed across Arizona • Same‑day certificates for contractors</span>
-      <a href="#quote">Get a fast quote</a>
+      <span>Free Color Palette Tool • Export your colors • Live preview</span>
+      <a href="#explore">Start exploring</a>
     </div>
   </div>
 
   <header class="header">
     <div class="container inner">
       <div class="logo">
-        <div class="logo-badge">NAI</div>
+        <div class="logo-badge">CC</div>
         <div>
-          <div style="font-weight:800;letter-spacing:.4px">Northern Arizona Insurance</div>
-          <div style="font-size:12px;opacity:.7">Protecting what you build</div>
+          <div style="font-weight:800;letter-spacing:.4px">ColorCraft</div>
+          <div style="font-size:12px;opacity:.7">Design your perfect palette</div>
         </div>
       </div>
       <nav class="nav">
-        <a href="#services">Services</a>
-        <a href="#industries">Industries</a>
+        <a href="#themes">Themes</a>
+        <a href="#features">Features</a>
+        <a href="#export">Export</a>
         <a href="#about">About</a>
-        <a href="#resources">Resources</a>
       </nav>
       <div style="display:flex;gap:8px;align-items:center">
-        <a class="btn btn-outline" href="tel:+1-000-000-0000">Call</a>
-        <a class="btn btn-accent" href="#quote">Get a Quote</a>
+        <a class="btn btn-outline" href="#themes">Browse</a>
+        <a class="btn btn-accent" href="#explore">Start Creating</a>
       </div>
     </div>
   </header>
@@ -155,127 +155,108 @@ box-shadow:0 10px 30px -12px rgba(0,0,0,.15);padding:22px}
         <div>
           <div class="kicker">
             <span class="dot" style="background:var(--primary)"></span>
-            Arizona‑focused coverage • Contractors • Barndominiums • General Liability
+            Color Palettes • Brand Identity • Live Preview • Instant Export
           </div>
-          <h1 class="h1">Insurance that fits the <span style="color:var(--primary)">desert</span> — with service that feels like <span style="color:var(--accent)">high‑noon straight‑shooting</span>.</h1>
-          <p class="lead">From Sedona red rock to Sonoran sand, we tailor policies for builders, homeowners, and small businesses across Arizona.</p>
+          <h1 class="h1">Find a color palette that <span style="color:var(--primary)">fits</span> your brand and captures your company's <span style="color:var(--accent)">aesthetic</span>.</h1>
+          <p class="lead">From vibrant and bold to subtle and sophisticated, create the perfect color scheme with our interactive palette generator.</p>
           <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
-            <a class="btn btn-accent" href="#quote">Start my quote</a>
-            <a class="btn btn-outline" href="#services">Explore services</a>
+            <a class="btn btn-accent" href="#explore">Create palette</a>
+            <a class="btn btn-outline" href="#themes">Browse themes</a>
           </div>
           <div class="pills">
-            <div class="pill"><span class="dot" style="background:var(--primary)"></span> AZ‑licensed experts</div>
-            <div class="pill"><span class="dot" style="background:var(--secondary)"></span> Same‑day certificates</div>
-            <div class="pill"><span class="dot" style="background:var(--accent)"></span> Claims advocacy</div>
+            <div class="pill"><span class="dot" style="background:var(--primary)"></span> Live preview</div>
+            <div class="pill"><span class="dot" style="background:var(--secondary)"></span> 8+ themes</div>
+            <div class="pill"><span class="dot" style="background:var(--accent)"></span> Export ready</div>
           </div>
         </div>
-        <div id="quote" class="card">
-          <h2 style="margin:0;font-size:26px;font-weight:800">Get your desert‑ready quote</h2>
-          <p style="margin:.2rem 0 1rem;opacity:.8;font-size:.95rem">Tell us a bit about you. We'll follow up with options that actually fit.</p>
-          
-          <!-- Success message (hidden by default) -->
-          <div id="form-success" class="success-message">
-            <strong>Thank you!</strong> We've received your request and will contact you within 24 hours.
+        <div id="explore" class="card">
+          <h2 style="margin:0;font-size:26px;font-weight:800">Explore Color Combinations</h2>
+          <p style="margin:.2rem 0 1rem;opacity:.8;font-size:.95rem">Use the color panel on the right to customize your palette. Changes apply instantly!</p>
+
+          <div style="background:#fffB;border:1px solid #0001;border-radius:14px;padding:16px;margin-top:16px">
+            <h3 style="margin:0;font-size:18px;font-weight:700">Quick Tips:</h3>
+            <ul style="margin:8px 0 0;padding-left:20px;opacity:.85">
+              <li>Choose from 8 pre-designed themes</li>
+              <li>Click any color to customize it</li>
+              <li>Enter hex codes for precise colors</li>
+              <li>Watch the entire page update in real-time</li>
+              <li>Copy color codes for your projects</li>
+            </ul>
           </div>
-          
-          <!-- Netlify Form - updated to work with Netlify Forms -->
-          <form class="form" name="insurance-quote" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-            <!-- Honeypot field for spam protection (hidden) -->
-            <input type="hidden" name="bot-field" />
-            <!-- Hidden field required by Netlify -->
-            <input type="hidden" name="form-name" value="insurance-quote" />
-            
-            <label>
-              <span class="sr-only">Full name</span>
-              <input type="text" name="name" placeholder="Full name" required>
-            </label>
-            <div style="display:grid;gap:12px;grid-template-columns:1fr">
-              <label>
-                <span class="sr-only">Email</span>
-                <input type="email" name="email" placeholder="Email" required>
-              </label>
-              <label>
-                <span class="sr-only">Phone</span>
-                <input type="tel" name="phone" placeholder="Phone" required>
-              </label>
+
+          <div style="margin-top:20px;padding:16px;background:var(--primary);color:#fff;border-radius:12px;text-align:center">
+            <div style="font-weight:700;font-size:18px">Your Current Palette</div>
+            <div style="display:flex;justify-content:center;gap:8px;margin-top:12px">
+              <div style="width:40px;height:40px;background:var(--primary);border:2px solid #fff;border-radius:8px" title="Primary"></div>
+              <div style="width:40px;height:40px;background:var(--secondary);border:2px solid #fff;border-radius:8px" title="Secondary"></div>
+              <div style="width:40px;height:40px;background:var(--accent);border:2px solid #fff;border-radius:8px" title="Accent"></div>
+              <div style="width:40px;height:40px;background:var(--bg);border:2px solid #fff;border-radius:8px" title="Background"></div>
+              <div style="width:40px;height:40px;background:var(--surface);border:2px solid #fff;border-radius:8px" title="Surface"></div>
+              <div style="width:40px;height:40px;background:var(--ink);border:2px solid #fff;border-radius:8px" title="Text"></div>
             </div>
-            <label>
-              <select name="coverage-type" required>
-                <option value="">What do you need coverage for?</option>
-                <option value="General Liability">General Liability (Contractors)</option>
-                <option value="Barndominium">Barndominium / Specialty Home</option>
-                <option value="Commercial Auto">Commercial Auto</option>
-                <option value="Workers Comp">Workers' Comp</option>
-                <option value="Other">Other / Not sure</option>
-              </select>
-            </label>
-            <label>
-              <textarea name="message" rows="3" placeholder="Anything we should know?"></textarea>
-            </label>
-            <button class="btn btn-accent" type="submit">Get my quote</button>
-          </form>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="services" class="section alt">
+    <section id="themes" class="section alt">
       <div class="container">
         <div class="topline">
           <div>
-            <h2>Coverage made for the Southwest</h2>
-            <p style="opacity:.8;margin:.3rem 0 0">Built around your projects, property, and people.</p>
+            <h2>Pre-designed Color Themes</h2>
+            <p style="opacity:.8;margin:.3rem 0 0">Start with a theme and customize to match your vision.</p>
           </div>
-          <a class="btn" style="background:var(--primary);color:#fff" href="#quote">Get a quote</a>
+          <a class="btn" style="background:var(--primary);color:#fff" href="#explore">Customize colors</a>
         </div>
 
         <div class="grid cols-3" style="margin-top:18px">
-          
+
           <div class="card service">
             <div style="display:flex;align-items:center;justify-content:space-between">
-              <h3 style="margin:0;font-size:1.05rem;font-weight:800">General Liability</h3>
+              <h3 style="margin:0;font-size:1.05rem;font-weight:800">Ocean Breeze</h3>
               <span class="arrow">→</span>
             </div>
-            <p style="margin:.4rem 0 0;opacity:.8;font-size:.95rem">Certificates fast, coverage that satisfies GC & permit requirements.</p>
+            <p style="margin:.4rem 0 0;opacity:.8;font-size:.95rem">Cool blues and teals for a refreshing, professional look.</p>
             <div class="bar" style="margin-top:14px"></div>
           </div>
           <div class="card service">
             <div style="display:flex;align-items:center;justify-content:space-between">
-              <h3 style="margin:0;font-size:1.05rem;font-weight:800">Barndominium & Specialty Homes</h3>
+              <h3 style="margin:0;font-size:1.05rem;font-weight:800">Forest Mist</h3>
               <span class="arrow">→</span>
             </div>
-            <p style="margin:.4rem 0 0;opacity:.8;font-size:.95rem">Tailored property coverage for unique builds, rural or urban fringe.</p>
+            <p style="margin:.4rem 0 0;opacity:.8;font-size:.95rem">Natural greens creating an organic, trustworthy feel.</p>
             <div class="bar" style="margin-top:14px"></div>
           </div>
           <div class="card service">
             <div style="display:flex;align-items:center;justify-content:space-between">
-              <h3 style="margin:0;font-size:1.05rem;font-weight:800">Contractor Packages</h3>
+              <h3 style="margin:0;font-size:1.05rem;font-weight:800">Desert Twilight</h3>
               <span class="arrow">→</span>
             </div>
-            <p style="margin:.4rem 0 0;opacity:.8;font-size:.95rem">Tools & equipment, inland marine, commercial auto—one place.</p>
+            <p style="margin:.4rem 0 0;opacity:.8;font-size:.95rem">Warm oranges and reds for bold, energetic brands.</p>
             <div class="bar" style="margin-top:14px"></div>
           </div>
           <div class="card service">
             <div style="display:flex;align-items:center;justify-content:space-between">
-              <h3 style="margin:0;font-size:1.05rem;font-weight:800">Workers' Comp</h3>
+              <h3 style="margin:0;font-size:1.05rem;font-weight:800">Midnight Sky</h3>
               <span class="arrow">→</span>
             </div>
-            <p style="margin:.4rem 0 0;opacity:.8;font-size:.95rem">Protect your crew with compliant, right‑sized policies.</p>
+            <p style="margin:.4rem 0 0;opacity:.8;font-size:.95rem">Deep blues for sophisticated, corporate aesthetics.</p>
             <div class="bar" style="margin-top:14px"></div>
           </div>
           <div class="card service">
             <div style="display:flex;align-items:center;justify-content:space-between">
-              <h3 style="margin:0;font-size:1.05rem;font-weight:800">Commercial Auto</h3>
+              <h3 style="margin:0;font-size:1.05rem;font-weight:800">Spring Meadow</h3>
               <span class="arrow">→</span>
             </div>
-            <p style="margin:.4rem 0 0;opacity:.8;font-size:.95rem">From pickups to box trucks, keep your wheels covered.</p>
+            <p style="margin:.4rem 0 0;opacity:.8;font-size:.95rem">Fresh greens and warm accents for growth-focused brands.</p>
             <div class="bar" style="margin-top:14px"></div>
           </div>
           <div class="card service">
             <div style="display:flex;align-items:center;justify-content:space-between">
-              <h3 style="margin:0;font-size:1.05rem;font-weight:800">Bonding</h3>
+              <h3 style="margin:0;font-size:1.05rem;font-weight:800">Monochrome</h3>
               <span class="arrow">→</span>
             </div>
-            <p style="margin:.4rem 0 0;opacity:.8;font-size:.95rem">Performance, payment, and permit bonds for AZ jobs.</p>
+            <p style="margin:.4rem 0 0;opacity:.8;font-size:.95rem">Timeless grayscale for minimalist, elegant designs.</p>
             <div class="bar" style="margin-top:14px"></div>
           </div>
         </div>
@@ -284,31 +265,31 @@ box-shadow:0 10px 30px -12px rgba(0,0,0,.15);padding:22px}
 
     <div class="stripe"></div>
 
-    <section id="industries" class="section">
+    <section id="features" class="section">
       <div class="container" style="display:grid;gap:24px;grid-template-columns:1fr;align-items:center">
         <div class="card">
-          <h2 style="margin:0;font-size:26px;font-weight:800">Built for Arizona industries</h2>
+          <h2 style="margin:0;font-size:26px;font-weight:800">Perfect for Every Project</h2>
           <ul class="industry-list">
-            <li style='display:flex;gap:10px;align-items:center'><span class='badge'></span><span>General Contractors</span></li>
-            <li style='display:flex;gap:10px;align-items:center'><span class='badge'></span><span>Roofing & Siding</span></li>
-            <li style='display:flex;gap:10px;align-items:center'><span class='badge'></span><span>Concrete & Masonry</span></li>
-            <li style='display:flex;gap:10px;align-items:center'><span class='badge'></span><span>HVAC & Electrical</span></li>
-            <li style='display:flex;gap:10px;align-items:center'><span class='badge'></span><span>Agriculture & Ranch</span></li>
-            <li style='display:flex;gap:10px;align-items:center'><span class='badge'></span><span>Manufacturing & Warehousing</span></li>
+            <li style='display:flex;gap:10px;align-items:center'><span class='badge'></span><span>Web Design & Development</span></li>
+            <li style='display:flex;gap:10px;align-items:center'><span class='badge'></span><span>Brand Identity Systems</span></li>
+            <li style='display:flex;gap:10px;align-items:center'><span class='badge'></span><span>Marketing Materials</span></li>
+            <li style='display:flex;gap:10px;align-items:center'><span class='badge'></span><span>User Interface Design</span></li>
+            <li style='display:flex;gap:10px;align-items:center'><span class='badge'></span><span>Print & Digital Media</span></li>
+            <li style='display:flex;gap:10px;align-items:center'><span class='badge'></span><span>Presentation Decks</span></li>
           </ul>
           <div class="sub-card">
-            <div style="font-weight:700">Why us</div>
-            <p style="opacity:.85;margin:.3rem 0 0">Local expertise, responsive service, and policies that match real‑world job requirements in AZ heat, dust, and distance.</p>
+            <div style="font-weight:700">Why ColorCraft?</div>
+            <p style="opacity:.85;margin:.3rem 0 0">Real-time preview, intuitive controls, and professional themes help you find the perfect palette in seconds, not hours.</p>
           </div>
         </div>
         <div class="card" style="padding:0;overflow:hidden">
           <div style="aspect-ratio:16/10;background:linear-gradient(135deg,var(--secondary), var(--surface) 55%, var(--accent))"></div>
           <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;background:#fffCC;padding:12px 16px">
             <div>
-              <div style="font-weight:700;font-size:.95rem">Same‑day COIs</div>
-              <div style="font-size:.85rem;opacity:.8">Most certificates issued within business hours.</div>
+              <div style="font-weight:700;font-size:.95rem">Export Your Colors</div>
+              <div style="font-size:.85rem;opacity:.8">Copy hex codes instantly for your design tools.</div>
             </div>
-            <a class="btn" style="background:var(--primary);color:#fff" href="#quote">Request now</a>
+            <a class="btn" style="background:var(--primary);color:#fff" href="#explore">Start now</a>
           </div>
         </div>
       </div>
@@ -318,12 +299,12 @@ box-shadow:0 10px 30px -12px rgba(0,0,0,.15);padding:22px}
       <div class="container">
         <div class="cta">
           <div>
-            <div style="font-size:1.4rem;font-weight:800">Ready to protect your desert build?</div>
-            <div style="opacity:.92">We'll compare carriers and bring back clear options—no dust, no spin.</div>
+            <div style="font-size:1.4rem;font-weight:800">Ready to create your perfect palette?</div>
+            <div style="opacity:.92">Explore themes, customize colors, and bring your vision to life.</div>
           </div>
           <div style="display:flex;gap:10px;flex-wrap:wrap">
-            <a class="btn" style="background:#fff;color:var(--ink)" href="#quote">Start my quote</a>
-            <a class="btn" style="border-color:#fff;color:#fff" href="tel:+1-000-000-0000">Call now</a>
+            <a class="btn" style="background:#fff;color:var(--ink)" href="#explore">Start creating</a>
+            <a class="btn" style="border-color:#fff;color:#fff" href="#themes">Browse themes</a>
           </div>
         </div>
       </div>
@@ -333,24 +314,24 @@ box-shadow:0 10px 30px -12px rgba(0,0,0,.15);padding:22px}
   <footer class="footer">
     <div class="container cols">
       <div>
-        <div style="font-size:1.1rem;font-weight:800">Northern Arizona Insurance</div>
-        <p style="margin:.4rem 0 0;opacity:.9">Cactus‑tough coverage. Human service.</p>
+        <div style="font-size:1.1rem;font-weight:800">ColorCraft</div>
+        <p style="margin:.4rem 0 0;opacity:.9">Design perfect palettes. Build better brands.</p>
       </div>
       <div>
-        <div style="font-weight:700;margin-bottom:8px">Services</div>
-        <div style="opacity:.9;font-size:.95rem">General Liability<br>Workers' Comp<br>Commercial Auto<br>Property & Equipment</div>
+        <div style="font-weight:700;margin-bottom:8px">Features</div>
+        <div style="opacity:.9;font-size:.95rem">Live Preview<br>Theme Library<br>Color Export<br>Hex Codes</div>
       </div>
       <div>
-        <div style="font-weight:700;margin-bottom:8px">Company</div>
-        <div style="opacity:.9;font-size:.95rem">About<br>Resources<br>Contact</div>
+        <div style="font-weight:700;margin-bottom:8px">Resources</div>
+        <div style="opacity:.9;font-size:.95rem">Color Theory<br>Design Tips<br>Documentation</div>
       </div>
       <div>
-        <div style="font-weight:700;margin-bottom:8px">Contact</div>
-        <div style="opacity:.9;font-size:.95rem">Arizona, USA<br>support@nainsurance.example<br>(000) 000‑0000</div>
-        <div style="margin-top:10px"><a class="btn" style="background:#fff;color:var(--ink)" href="#quote">Get a quote</a></div>
+        <div style="font-weight:700;margin-bottom:8px">Get Started</div>
+        <div style="opacity:.9;font-size:.95rem">Free to use<br>No registration<br>Export anytime</div>
+        <div style="margin-top:10px"><a class="btn" style="background:#fff;color:var(--ink)" href="#explore">Create palette</a></div>
       </div>
     </div>
-    <div class="copy">© 2025 Northern Arizona Insurance. All rights reserved.</div>
+    <div class="copy">© 2025 ColorCraft. Free color palette generator.</div>
   </footer>
 
   <!-- Color Picker Panel -->
@@ -367,6 +348,28 @@ box-shadow:0 10px 30px -12px rgba(0,0,0,.15);padding:22px}
         <option value="spring">Spring Meadow</option>
         <option value="autumn">Autumn Harvest</option>
         <option value="monochrome">Monochrome</option>
+        <option value="cyberpunk">Cyberpunk Neon</option>
+        <option value="pastel">Soft Pastel</option>
+        <option value="nordic">Nordic Frost</option>
+        <option value="tropical">Tropical Paradise</option>
+        <option value="vintage">Vintage Charm</option>
+        <option value="neon">Neon Lights</option>
+        <option value="royal">Royal Purple</option>
+        <option value="earth">Earth Tones</option>
+        <option value="candy">Candy Shop</option>
+        <option value="corporate">Corporate Blue</option>
+        <option value="retro">Retro Orange</option>
+        <option value="minimalist">Minimalist</option>
+        <optgroup label="2025 Trending">
+          <option value="mochaMousse">Mocha Mousse (Pantone 2025)</option>
+          <option value="futureDusk">Future Dusk</option>
+          <option value="aquaticWonder">Aquatic Wonder</option>
+          <option value="italianPlum">Italian Plum Luxury</option>
+          <option value="fernGarden">Fern Garden</option>
+          <option value="tomatoCream">Tomato Cream</option>
+          <option value="viridianNature">Viridian Nature</option>
+          <option value="airyBlue">Airy Blue Sky</option>
+        </optgroup>
       </select>
     </div>
 
@@ -511,6 +514,167 @@ box-shadow:0 10px 30px -12px rgba(0,0,0,.15);padding:22px}
       bg: '#F5F5F5',
       surface: '#E0E0E0',
       ink: '#1A1A1A'
+    },
+    cyberpunk: {
+      primary: '#FF00FF',
+      secondary: '#00FFFF',
+      accent: '#FFFF00',
+      bg: '#0A0A0A',
+      surface: '#1A1A2E',
+      ink: '#FFFFFF'
+    },
+    pastel: {
+      primary: '#FFB3BA',
+      secondary: '#BAFFC9',
+      accent: '#BAE1FF',
+      bg: '#FFFFEB',
+      surface: '#FFE4E1',
+      ink: '#4A4A4A'
+    },
+    nordic: {
+      primary: '#5E81AC',
+      secondary: '#81A1C1',
+      accent: '#88C0D0',
+      bg: '#ECEFF4',
+      surface: '#E5E9F0',
+      ink: '#2E3440'
+    },
+    tropical: {
+      primary: '#00BFA5',
+      secondary: '#FF6B6B',
+      accent: '#FFD93D',
+      bg: '#F8F9FA',
+      surface: '#E3F2FD',
+      ink: '#212529'
+    },
+    vintage: {
+      primary: '#8B4513',
+      secondary: '#CD853F',
+      accent: '#DAA520',
+      bg: '#FFF8DC',
+      surface: '#F5DEB3',
+      ink: '#3E2723'
+    },
+    neon: {
+      primary: '#FF1744',
+      secondary: '#00E676',
+      accent: '#FFEA00',
+      bg: '#121212',
+      surface: '#1E1E1E',
+      ink: '#FFFFFF'
+    },
+    royal: {
+      primary: '#4B0082',
+      secondary: '#663399',
+      accent: '#FFD700',
+      bg: '#F8F8FF',
+      surface: '#E6E6FA',
+      ink: '#1A0033'
+    },
+    earth: {
+      primary: '#8B4513',
+      secondary: '#A0522D',
+      accent: '#D2691E',
+      bg: '#FAF0E6',
+      surface: '#F5E6D3',
+      ink: '#3E2723'
+    },
+    candy: {
+      primary: '#FF69B4',
+      secondary: '#FF1493',
+      accent: '#FFB6C1',
+      bg: '#FFF0F5',
+      surface: '#FFE4E1',
+      ink: '#8B008B'
+    },
+    corporate: {
+      primary: '#003366',
+      secondary: '#336699',
+      accent: '#0066CC',
+      bg: '#FFFFFF',
+      surface: '#F0F4F8',
+      ink: '#1A1A1A'
+    },
+    retro: {
+      primary: '#FF6B35',
+      secondary: '#F77737',
+      accent: '#C9302C',
+      bg: '#FFF3E0',
+      surface: '#FFE0B2',
+      ink: '#5D4037'
+    },
+    minimalist: {
+      primary: '#000000',
+      secondary: '#7F7F7F',
+      accent: '#BFBFBF',
+      bg: '#FFFFFF',
+      surface: '#FAFAFA',
+      ink: '#000000'
+    },
+    // 2025 Trending Color Palettes
+    mochaMousse: {
+      primary: '#8B6B5C',  // Mocha Mousse (Pantone 2025)
+      secondary: '#C4A484',  // Light mocha
+      accent: '#D2691E',  // Chocolate
+      bg: '#FAF3E9',  // Cream
+      surface: '#EDE0D4',  // Light coffee
+      ink: '#3E2723'  // Dark brown
+    },
+    futureDusk: {
+      primary: '#4A3C7D',  // Future Dusk purple
+      secondary: '#7B68A6',  // Medium purple
+      accent: '#E8B4D8',  // Transcendent Pink
+      bg: '#F5F3FA',  // Light lavender
+      surface: '#E6E2F0',  // Pale purple
+      ink: '#2B1F4D'  // Deep purple
+    },
+    aquaticWonder: {
+      primary: '#00ACC1',  // Aquatic Awe
+      secondary: '#4DD0E1',  // Light aqua
+      accent: '#FF7043',  // Sunset Coral
+      bg: '#E0F7FA',  // Pale cyan
+      surface: '#B2EBF2',  // Light cyan
+      ink: '#006064'  // Deep teal
+    },
+    italianPlum: {
+      primary: '#6B3AA0',  // Italian Plum
+      secondary: '#9C27B0',  // Purple
+      accent: '#E91E63',  // Scarlet Smile
+      bg: '#FCE4EC',  // Light pink
+      surface: '#F3E5F5',  // Light purple
+      ink: '#4A148C'  // Deep purple
+    },
+    fernGarden: {
+      primary: '#4CAF50',  // Fern green
+      secondary: '#81C784',  // Light green
+      accent: '#FFA726',  // Ray Flower orange
+      bg: '#F1F8E9',  // Pale green
+      surface: '#DCEDC8',  // Light green
+      ink: '#1B5E20'  // Dark green
+    },
+    tomatoCream: {
+      primary: '#E53935',  // Tomato Cream red
+      secondary: '#FF6F60',  // Coral red
+      accent: '#FFB300',  // Amber
+      bg: '#FFF3E0',  // Cream
+      surface: '#FFE0B2',  // Peach
+      ink: '#BF360C'  // Deep orange
+    },
+    viridianNature: {
+      primary: '#00897B',  // Viridian Green
+      secondary: '#4DB6AC',  // Medium teal
+      accent: '#FFD54F',  // Yellow
+      bg: '#E8F5E9',  // Mint cream
+      surface: '#C8E6C9',  // Light green
+      ink: '#004D40'  // Dark teal
+    },
+    airyBlue: {
+      primary: '#64B5F6',  // Airy Blue
+      secondary: '#90CAF9',  // Light blue
+      accent: '#FFA726',  // Orange
+      bg: '#F3F9FF',  // Alice blue
+      surface: '#E1F5FE',  // Pale blue
+      ink: '#0D47A1'  // Navy
     }
   };
 
