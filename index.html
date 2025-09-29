@@ -98,13 +98,28 @@ box-shadow:0 4px 16px rgba(0,0,0,0.08);padding:24px;transition:all 0.3s ease}
 #color-picker-panel::-webkit-scrollbar-thumb:hover { background: #555; }
 
 /* Mobile responsive adjustments */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   #color-picker-panel {
-    right: 8px !important;
-    bottom: 8px !important;
-    max-width: calc(100vw - 32px) !important;
-    max-height: 60vh;
+    right: 10px !important;
+    left: 10px !important;
+    bottom: 10px !important;
+    max-width: none !important;
+    width: calc(100% - 20px) !important;
+  }
+
+  #panel-content {
+    max-height: 50vh;
     overflow-y: auto;
+    transition: max-height 0.3s ease;
+  }
+
+  #panel-content.collapsed {
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  #mobile-header {
+    display: block !important;
   }
 }
 
@@ -691,10 +706,22 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
   </footer>
 
   <!-- Color Picker Panel -->
-  <div id="color-picker-panel" style="position: fixed; right: 16px; bottom: 16px; background: #fff; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); padding: 20px; max-width: 320px; z-index: 100;">
-    <!-- Theme Selector -->
-    <div style="margin-bottom: 20px;">
-      <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #444; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">Select Theme</label>
+  <div id="color-picker-panel" style="position: fixed; right: 16px; bottom: 16px; background: #fff; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); padding: 20px; max-width: 320px; z-index: 100; transition: all 0.3s ease;">
+    <!-- Mobile Toggle Header -->
+    <div id="mobile-header" style="display: none; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid #eee;">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-weight: 600; color: #444;">Color Picker</span>
+        <button id="mobile-toggle" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #666; padding: 0; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;">
+          <span id="toggle-icon">−</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Collapsible Content -->
+    <div id="panel-content">
+      <!-- Theme Selector -->
+      <div style="margin-bottom: 20px;">
+        <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #444; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">Select Theme</label>
       <select id="theme-selector" style="width: 100%; padding: 8px 12px; border: 1px solid #ddd; border-radius: 8px; background: white; cursor: pointer;">
         <option value="default">Saguaro Sunset (Default)</option>
         <option value="ocean">Ocean Breeze</option>
@@ -783,11 +810,9 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
     <!-- Submit Color Theme Button -->
     <button id="submit-colors" style="width: 100%; margin-top: 16px; padding: 12px; background: var(--primary); border: none; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500; color: white; transition: all 0.2s; text-transform: uppercase; letter-spacing: 0.5px;">Submit Color Theme</button>
 
-    <!-- Reset link -->
-    <a href="#" id="reset-link" style="display: block; text-align: center; margin-top: 8px; font-size: 12px; color: #888; text-decoration: none;">Reset to default</a>
-
-    <!-- Toggle Button for Mobile -->
-    <button id="toggle-panel" style="position: absolute; top: -40px; right: 0; background: white; border: 1px solid #ddd; border-radius: 8px 8px 0 0; padding: 8px 16px; font-size: 12px; cursor: pointer; display: none;">Colors</button>
+      <!-- Reset link -->
+      <a href="#" id="reset-link" style="display: block; text-align: center; margin-top: 8px; font-size: 12px; color: #888; text-decoration: none;">Reset to default</a>
+    </div>
   </div>
 
   <!-- Color Submission Modal -->
@@ -1244,23 +1269,41 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
 
   // Mobile responsiveness for color panel
   const panel = document.getElementById('color-picker-panel');
-  const toggleBtn = document.getElementById('toggle-panel');
+  const mobileHeader = document.getElementById('mobile-header');
+  const mobileToggle = document.getElementById('mobile-toggle');
+  const panelContent = document.getElementById('panel-content');
+  const toggleIcon = document.getElementById('toggle-icon');
 
-  // Check if mobile
-  function checkMobile() {
-    if (window.innerWidth < 640) {
-      toggleBtn.style.display = 'block';
-      panel.style.display = 'none';
-    } else {
-      toggleBtn.style.display = 'none';
-      panel.style.display = 'block';
-    }
+  // Handle mobile toggle
+  if (mobileToggle) {
+    mobileToggle.addEventListener('click', () => {
+      const isCollapsed = panelContent.classList.contains('collapsed');
+
+      if (isCollapsed) {
+        panelContent.classList.remove('collapsed');
+        toggleIcon.textContent = '−';
+      } else {
+        panelContent.classList.add('collapsed');
+        toggleIcon.textContent = '+';
+      }
+    });
   }
 
-  // Toggle panel on mobile
-  toggleBtn.addEventListener('click', () => {
-    panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
-  });
+  // Check if mobile on load and resize
+  function checkMobile() {
+    const isMobile = window.innerWidth <= 768;
+
+    if (isMobile) {
+      // On mobile, show the header but keep content expanded by default
+      if (!mobileHeader.style.display || mobileHeader.style.display === 'none') {
+        mobileHeader.style.display = 'block';
+      }
+    } else {
+      // On desktop, hide the mobile header and ensure content is visible
+      mobileHeader.style.display = 'none';
+      panelContent.classList.remove('collapsed');
+    }
+  }
 
   // Check on load and resize
   window.addEventListener('resize', checkMobile);
