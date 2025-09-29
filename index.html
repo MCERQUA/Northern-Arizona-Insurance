@@ -65,6 +65,8 @@ box-shadow:0 10px 30px -12px rgba(0,0,0,.15);padding:22px}
 
 .section{padding:60px 0}
 .section.alt{background:color-mix(in oklab,#fff, var(--bg) 40%);border-top:1px solid #0001;border-bottom:1px solid #0001}
+.grid.cols-4{display:grid;gap:16px}
+@media (min-width:900px){.grid.cols-4{grid-template-columns:repeat(4,1fr)}}
 
 .section h2{font-size:clamp(26px,3vw,36px);margin:0}
 .section .topline{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-end}
@@ -116,6 +118,10 @@ box-shadow:0 10px 30px -12px rgba(0,0,0,.15);padding:22px}
 /* Success message styles */
 .success-message{background:color-mix(in oklab,var(--primary),#fff 85%);border:2px solid var(--primary);color:var(--primary);padding:16px;border-radius:12px;text-align:center;display:none}
 .success-message.show{display:block}
+
+/* FAQ Accordion styles */
+.card.open .open\:rotate{transform:rotate(45deg)}
+.card.open > div:last-child{max-height:200px !important}
   </style>
 </head>
 <body>
@@ -199,71 +205,357 @@ box-shadow:0 10px 30px -12px rgba(0,0,0,.15);padding:22px}
       </div>
     </section>
 
-    <section id="themes" class="section alt">
+    <!-- Pricing Cards Section -->
+    <section id="pricing" class="section alt">
       <div class="container">
         <div class="topline">
           <div>
-            <h2>Pre-designed Color Themes</h2>
-            <p style="opacity:.8;margin:.3rem 0 0">Start with a theme and customize to match your vision.</p>
+            <h2>Pricing Plans</h2>
+            <p style="opacity:.8;margin:.3rem 0 0">Choose the perfect plan for your business needs.</p>
           </div>
-          <a class="btn" style="background:var(--primary);color:#fff" href="#explore">Customize colors</a>
         </div>
 
-        <div class="grid cols-3" style="margin-top:18px">
+        <div class="grid cols-3" style="margin-top:24px">
+          <!-- Basic Plan -->
+          <div class="card" style="position:relative;text-align:center">
+            <div style="position:absolute;top:-12px;right:20px;background:var(--surface);color:var(--ink);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600">POPULAR</div>
+            <h3 style="margin:0;font-size:1.3rem;color:var(--primary)">Starter</h3>
+            <div style="margin:16px 0">
+              <span style="font-size:2.5rem;font-weight:800;color:var(--ink)">$29</span>
+              <span style="opacity:.7">/month</span>
+            </div>
+            <ul style="list-style:none;padding:0;margin:20px 0;text-align:left">
+              <li style="padding:8px 0;border-bottom:1px solid #0001">✓ 5 User Accounts</li>
+              <li style="padding:8px 0;border-bottom:1px solid #0001">✓ Basic Support</li>
+              <li style="padding:8px 0;border-bottom:1px solid #0001">✓ 10GB Storage</li>
+              <li style="padding:8px 0;border-bottom:1px solid #0001;opacity:.5">✗ Custom Domain</li>
+            </ul>
+            <button class="btn btn-outline" style="width:100%">Get Started</button>
+          </div>
 
-          <div class="card service">
-            <div style="display:flex;align-items:center;justify-content:space-between">
-              <h3 style="margin:0;font-size:1.05rem;font-weight:800">Ocean Breeze</h3>
-              <span class="arrow">→</span>
+          <!-- Pro Plan -->
+          <div class="card" style="text-align:center;border:2px solid var(--primary);transform:scale(1.05)">
+            <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--primary);color:#fff;padding:4px 16px;border-radius:20px;font-size:12px;font-weight:600">RECOMMENDED</div>
+            <h3 style="margin:0;font-size:1.3rem;color:var(--primary)">Professional</h3>
+            <div style="margin:16px 0">
+              <span style="font-size:2.5rem;font-weight:800;color:var(--accent)">$79</span>
+              <span style="opacity:.7">/month</span>
             </div>
-            <p style="margin:.4rem 0 0;opacity:.8;font-size:.95rem">Cool blues and teals for a refreshing, professional look.</p>
-            <div class="bar" style="margin-top:14px"></div>
+            <ul style="list-style:none;padding:0;margin:20px 0;text-align:left">
+              <li style="padding:8px 0;border-bottom:1px solid #0001">✓ Unlimited Users</li>
+              <li style="padding:8px 0;border-bottom:1px solid #0001">✓ Priority Support</li>
+              <li style="padding:8px 0;border-bottom:1px solid #0001">✓ 100GB Storage</li>
+              <li style="padding:8px 0;border-bottom:1px solid #0001">✓ Custom Domain</li>
+            </ul>
+            <button class="btn btn-accent" style="width:100%">Get Started</button>
           </div>
-          <div class="card service">
-            <div style="display:flex;align-items:center;justify-content:space-between">
-              <h3 style="margin:0;font-size:1.05rem;font-weight:800">Forest Mist</h3>
-              <span class="arrow">→</span>
+
+          <!-- Enterprise Plan -->
+          <div class="card" style="text-align:center">
+            <h3 style="margin:0;font-size:1.3rem;color:var(--primary)">Enterprise</h3>
+            <div style="margin:16px 0">
+              <span style="font-size:2.5rem;font-weight:800;color:var(--ink)">$199</span>
+              <span style="opacity:.7">/month</span>
             </div>
-            <p style="margin:.4rem 0 0;opacity:.8;font-size:.95rem">Natural greens creating an organic, trustworthy feel.</p>
-            <div class="bar" style="margin-top:14px"></div>
+            <ul style="list-style:none;padding:0;margin:20px 0;text-align:left">
+              <li style="padding:8px 0;border-bottom:1px solid #0001">✓ Unlimited Everything</li>
+              <li style="padding:8px 0;border-bottom:1px solid #0001">✓ Dedicated Support</li>
+              <li style="padding:8px 0;border-bottom:1px solid #0001">✓ Unlimited Storage</li>
+              <li style="padding:8px 0;border-bottom:1px solid #0001">✓ Multiple Domains</li>
+            </ul>
+            <button class="btn" style="width:100%;background:var(--secondary);color:#fff">Contact Sales</button>
           </div>
-          <div class="card service">
-            <div style="display:flex;align-items:center;justify-content:space-between">
-              <h3 style="margin:0;font-size:1.05rem;font-weight:800">Desert Twilight</h3>
-              <span class="arrow">→</span>
-            </div>
-            <p style="margin:.4rem 0 0;opacity:.8;font-size:.95rem">Warm oranges and reds for bold, energetic brands.</p>
-            <div class="bar" style="margin-top:14px"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Cards with Icons -->
+    <section class="section">
+      <div class="container">
+        <h2 style="text-align:center;margin-bottom:8px">Our Services</h2>
+        <p style="text-align:center;opacity:.8;margin-bottom:32px">Comprehensive solutions for your business</p>
+
+        <div class="grid cols-3" style="gap:20px">
+          <div class="card" style="text-align:center;padding:32px">
+            <div style="width:60px;height:60px;background:var(--primary);border-radius:50%;display:grid;place-items:center;margin:0 auto 16px;color:#fff;font-size:24px">⚡</div>
+            <h3 style="color:var(--primary);margin:0 0 12px">Fast Service</h3>
+            <p style="opacity:.8;font-size:.95rem">Quick turnaround times with same-day service available for urgent needs.</p>
           </div>
-          <div class="card service">
-            <div style="display:flex;align-items:center;justify-content:space-between">
-              <h3 style="margin:0;font-size:1.05rem;font-weight:800">Midnight Sky</h3>
-              <span class="arrow">→</span>
-            </div>
-            <p style="margin:.4rem 0 0;opacity:.8;font-size:.95rem">Deep blues for sophisticated, corporate aesthetics.</p>
-            <div class="bar" style="margin-top:14px"></div>
+
+          <div class="card" style="text-align:center;padding:32px">
+            <div style="width:60px;height:60px;background:var(--secondary);border-radius:50%;display:grid;place-items:center;margin:0 auto 16px;color:#fff;font-size:24px">🛡️</div>
+            <h3 style="color:var(--secondary);margin:0 0 12px">Secure & Reliable</h3>
+            <p style="opacity:.8;font-size:.95rem">Industry-leading security measures to protect your data and privacy.</p>
           </div>
-          <div class="card service">
-            <div style="display:flex;align-items:center;justify-content:space-between">
-              <h3 style="margin:0;font-size:1.05rem;font-weight:800">Spring Meadow</h3>
-              <span class="arrow">→</span>
-            </div>
-            <p style="margin:.4rem 0 0;opacity:.8;font-size:.95rem">Fresh greens and warm accents for growth-focused brands.</p>
-            <div class="bar" style="margin-top:14px"></div>
+
+          <div class="card" style="text-align:center;padding:32px">
+            <div style="width:60px;height:60px;background:var(--accent);border-radius:50%;display:grid;place-items:center;margin:0 auto 16px;color:#fff;font-size:24px">📱</div>
+            <h3 style="color:var(--accent);margin:0 0 12px">24/7 Support</h3>
+            <p style="opacity:.8;font-size:.95rem">Round-the-clock customer support whenever you need assistance.</p>
           </div>
-          <div class="card service">
-            <div style="display:flex;align-items:center;justify-content:space-between">
-              <h3 style="margin:0;font-size:1.05rem;font-weight:800">Monochrome</h3>
-              <span class="arrow">→</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section alt">
+      <div class="container">
+        <h2 style="text-align:center;margin-bottom:32px">What Our Clients Say</h2>
+
+        <div class="grid cols-2" style="gap:24px">
+          <div class="card" style="padding:28px">
+            <div style="display:flex;gap:8px;margin-bottom:12px;color:var(--accent)">
+              ★★★★★
             </div>
-            <p style="margin:.4rem 0 0;opacity:.8;font-size:.95rem">Timeless grayscale for minimalist, elegant designs.</p>
-            <div class="bar" style="margin-top:14px"></div>
+            <p style="font-style:italic;margin-bottom:16px">"Outstanding service! They exceeded our expectations and delivered on time. Highly recommend for any business."</p>
+            <div style="display:flex;align-items:center;gap:12px">
+              <div style="width:48px;height:48px;background:var(--primary);border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:600">JD</div>
+              <div>
+                <div style="font-weight:600">John Doe</div>
+                <div style="font-size:.85rem;opacity:.7">CEO, Tech Corp</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="padding:28px">
+            <div style="display:flex;gap:8px;margin-bottom:12px;color:var(--accent)">
+              ★★★★★
+            </div>
+            <p style="font-style:italic;margin-bottom:16px">"Professional, reliable, and affordable. They transformed our business processes and saved us valuable time."</p>
+            <div style="display:flex;align-items:center;gap:12px">
+              <div style="width:48px;height:48px;background:var(--secondary);border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:600">SM</div>
+              <div>
+                <div style="font-weight:600">Sarah Miller</div>
+                <div style="font-size:.85rem;opacity:.7">Owner, Design Studio</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="section">
+      <div class="container">
+        <div class="grid cols-2" style="gap:40px;align-items:start">
+          <!-- Contact Form -->
+          <div>
+            <h2 style="margin:0 0 8px">Get In Touch</h2>
+            <p style="opacity:.8;margin-bottom:24px">Send us a message and we'll respond within 24 hours.</p>
+
+            <form class="form" style="display:grid;gap:16px">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+                <input type="text" placeholder="First Name" style="padding:12px;border:1px solid #0002;border-radius:8px;background:#fff">
+                <input type="text" placeholder="Last Name" style="padding:12px;border:1px solid #0002;border-radius:8px;background:#fff">
+              </div>
+              <input type="email" placeholder="Email Address" style="padding:12px;border:1px solid #0002;border-radius:8px;background:#fff">
+              <input type="tel" placeholder="Phone Number" style="padding:12px;border:1px solid #0002;border-radius:8px;background:#fff">
+              <select style="padding:12px;border:1px solid #0002;border-radius:8px;background:#fff">
+                <option>Select Service Type</option>
+                <option>General Inquiry</option>
+                <option>Technical Support</option>
+                <option>Sales Question</option>
+                <option>Partnership</option>
+              </select>
+              <textarea placeholder="Your Message" rows="4" style="padding:12px;border:1px solid #0002;border-radius:8px;background:#fff;resize:vertical"></textarea>
+              <button class="btn btn-accent" type="submit">Send Message</button>
+            </form>
+          </div>
+
+          <!-- Contact Info Cards -->
+          <div>
+            <h2 style="margin:0 0 24px">Contact Information</h2>
+
+            <div style="display:grid;gap:16px">
+              <div class="card" style="display:flex;align-items:center;gap:16px;padding:20px">
+                <div style="width:48px;height:48px;background:var(--primary);border-radius:12px;display:grid;place-items:center;color:#fff;font-size:20px">📍</div>
+                <div>
+                  <div style="font-weight:600">Office Location</div>
+                  <div style="opacity:.8;font-size:.95rem">123 Business Ave, Suite 100<br>City, State 12345</div>
+                </div>
+              </div>
+
+              <div class="card" style="display:flex;align-items:center;gap:16px;padding:20px">
+                <div style="width:48px;height:48px;background:var(--secondary);border-radius:12px;display:grid;place-items:center;color:#fff;font-size:20px">📧</div>
+                <div>
+                  <div style="font-weight:600">Email Us</div>
+                  <div style="opacity:.8;font-size:.95rem">info@business.com<br>support@business.com</div>
+                </div>
+              </div>
+
+              <div class="card" style="display:flex;align-items:center;gap:16px;padding:20px">
+                <div style="width:48px;height:48px;background:var(--accent);border-radius:12px;display:grid;place-items:center;color:#fff;font-size:20px">📞</div>
+                <div>
+                  <div style="font-weight:600">Call Us</div>
+                  <div style="opacity:.8;font-size:.95rem">Main: (555) 123-4567<br>Support: (555) 123-4568</div>
+                </div>
+              </div>
+
+              <div class="card" style="display:flex;align-items:center;gap:16px;padding:20px">
+                <div style="width:48px;height:48px;background:var(--primary);border-radius:12px;display:grid;place-items:center;color:#fff;font-size:20px">🕒</div>
+                <div>
+                  <div style="font-weight:600">Business Hours</div>
+                  <div style="opacity:.8;font-size:.95rem">Mon-Fri: 9AM - 6PM<br>Sat-Sun: 10AM - 4PM</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <div class="stripe"></div>
+
+    <!-- FAQ Accordion Section -->
+    <section class="section alt">
+      <div class="container">
+        <h2 style="text-align:center;margin-bottom:8px">Frequently Asked Questions</h2>
+        <p style="text-align:center;opacity:.8;margin-bottom:32px">Everything you need to know about our services</p>
+
+        <div style="max-width:800px;margin:0 auto">
+          <div class="card" style="margin-bottom:16px">
+            <div onclick="this.parentElement.classList.toggle('open')" style="padding:20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:var(--surface);border-radius:12px">
+              <h3 style="margin:0;font-size:1.1rem">How quickly can you deliver?</h3>
+              <span style="font-size:20px;color:var(--primary);transition:transform .3s">+</span>
+            </div>
+            <div style="max-height:0;overflow:hidden;transition:max-height .3s ease">
+              <p style="padding:20px;margin:0;background:#fff;border-top:1px solid #0001">We offer same-day service for urgent requests and typically deliver within 24-48 hours for standard orders. Our express service guarantees delivery within 4 hours.</p>
+            </div>
+          </div>
+
+          <div class="card" style="margin-bottom:16px">
+            <div onclick="this.parentElement.classList.toggle('open')" style="padding:20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:var(--surface);border-radius:12px">
+              <h3 style="margin:0;font-size:1.1rem">What payment methods do you accept?</h3>
+              <span style="font-size:20px;color:var(--primary);transition:transform .3s">+</span>
+            </div>
+            <div style="max-height:0;overflow:hidden;transition:max-height .3s ease">
+              <p style="padding:20px;margin:0;background:#fff;border-top:1px solid #0001">We accept all major credit cards, PayPal, bank transfers, and ACH payments. For enterprise clients, we also offer NET 30 payment terms upon approval.</p>
+            </div>
+          </div>
+
+          <div class="card" style="margin-bottom:16px">
+            <div onclick="this.parentElement.classList.toggle('open')" style="padding:20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:var(--surface);border-radius:12px">
+              <h3 style="margin:0;font-size:1.1rem">Do you offer custom solutions?</h3>
+              <span style="font-size:20px;color:var(--primary);transition:transform .3s">+</span>
+            </div>
+            <div style="max-height:0;overflow:hidden;transition:max-height .3s ease">
+              <p style="padding:20px;margin:0;background:#fff;border-top:1px solid #0001">Yes! We specialize in creating custom solutions tailored to your specific business needs. Contact our team to discuss your requirements.</p>
+            </div>
+          </div>
+
+          <div class="card" style="margin-bottom:16px">
+            <div onclick="this.parentElement.classList.toggle('open')" style="padding:20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:var(--surface);border-radius:12px">
+              <h3 style="margin:0;font-size:1.1rem">Is there a minimum contract period?</h3>
+              <span style="font-size:20px;color:var(--primary);transition:transform .3s">+</span>
+            </div>
+            <div style="max-height:0;overflow:hidden;transition:max-height .3s ease">
+              <p style="padding:20px;margin:0;background:#fff;border-top:1px solid #0001">No minimum contracts! We offer flexible month-to-month plans. However, annual contracts receive a 20% discount.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UI Elements Showcase -->
+    <section class="section">
+      <div class="container">
+        <h2 style="text-align:center;margin-bottom:32px">UI Component Examples</h2>
+
+        <!-- Buttons Row -->
+        <div style="background:#fff;padding:24px;border-radius:16px;margin-bottom:24px;box-shadow:0 4px 12px rgba(0,0,0,.08)">
+          <h3 style="margin:0 0 16px;color:var(--primary)">Buttons & Actions</h3>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+            <button class="btn btn-accent">Primary Action</button>
+            <button class="btn" style="background:var(--secondary);color:#fff">Secondary</button>
+            <button class="btn btn-outline">Outline Button</button>
+            <button class="btn" style="background:var(--surface);color:var(--ink)">Subtle</button>
+            <button class="btn" style="background:#28a745;color:#fff">✓ Success</button>
+            <button class="btn" style="background:#dc3545;color:#fff">⚠ Warning</button>
+            <button class="btn" disabled style="opacity:.5;cursor:not-allowed">Disabled</button>
+          </div>
+        </div>
+
+        <!-- Alert Messages -->
+        <div style="display:grid;gap:12px;margin-bottom:24px">
+          <div style="padding:16px;background:color-mix(in oklab,var(--primary),#fff 85%);border-left:4px solid var(--primary);border-radius:8px">
+            <strong>Info:</strong> This is an informational message using primary color.
+          </div>
+          <div style="padding:16px;background:color-mix(in oklab,#28a745,#fff 85%);border-left:4px solid #28a745;border-radius:8px">
+            <strong>Success!</strong> Your action was completed successfully.
+          </div>
+          <div style="padding:16px;background:color-mix(in oklab,var(--accent),#fff 85%);border-left:4px solid var(--accent);border-radius:8px">
+            <strong>Warning:</strong> Please review this important information.
+          </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="grid cols-4" style="gap:16px;margin-bottom:24px">
+          <div class="card" style="text-align:center;padding:20px">
+            <div style="font-size:2rem;font-weight:800;color:var(--primary)">98%</div>
+            <div style="opacity:.7;font-size:.9rem">Customer Satisfaction</div>
+          </div>
+          <div class="card" style="text-align:center;padding:20px">
+            <div style="font-size:2rem;font-weight:800;color:var(--secondary)">24/7</div>
+            <div style="opacity:.7;font-size:.9rem">Support Available</div>
+          </div>
+          <div class="card" style="text-align:center;padding:20px">
+            <div style="font-size:2rem;font-weight:800;color:var(--accent)">500+</div>
+            <div style="opacity:.7;font-size:.9rem">Active Clients</div>
+          </div>
+          <div class="card" style="text-align:center;padding:20px">
+            <div style="font-size:2rem;font-weight:800;color:var(--ink)">10+</div>
+            <div style="opacity:.7;font-size:.9rem">Years Experience</div>
+          </div>
+        </div>
+
+        <!-- Progress Bars -->
+        <div class="card" style="padding:24px;margin-bottom:24px">
+          <h3 style="margin:0 0 20px">Progress Indicators</h3>
+          <div style="margin-bottom:16px">
+            <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+              <span>Project Completion</span>
+              <span style="color:var(--primary);font-weight:600">75%</span>
+            </div>
+            <div style="height:8px;background:var(--surface);border-radius:4px;overflow:hidden">
+              <div style="width:75%;height:100%;background:var(--primary);border-radius:4px"></div>
+            </div>
+          </div>
+          <div style="margin-bottom:16px">
+            <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+              <span>Customer Goals</span>
+              <span style="color:var(--secondary);font-weight:600">90%</span>
+            </div>
+            <div style="height:8px;background:var(--surface);border-radius:4px;overflow:hidden">
+              <div style="width:90%;height:100%;background:var(--secondary);border-radius:4px"></div>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+              <span>Revenue Target</span>
+              <span style="color:var(--accent);font-weight:600">60%</span>
+            </div>
+            <div style="height:8px;background:var(--surface);border-radius:4px;overflow:hidden">
+              <div style="width:60%;height:100%;background:var(--accent);border-radius:4px"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Badges and Tags -->
+        <div class="card" style="padding:24px">
+          <h3 style="margin:0 0 16px">Badges & Tags</h3>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span style="padding:4px 12px;background:var(--primary);color:#fff;border-radius:20px;font-size:.85rem">New</span>
+            <span style="padding:4px 12px;background:var(--secondary);color:#fff;border-radius:20px;font-size:.85rem">Featured</span>
+            <span style="padding:4px 12px;background:var(--accent);color:#fff;border-radius:20px;font-size:.85rem">Hot</span>
+            <span style="padding:4px 12px;background:var(--surface);color:var(--ink);border-radius:20px;font-size:.85rem">Coming Soon</span>
+            <span style="padding:4px 12px;border:1px solid var(--primary);color:var(--primary);border-radius:20px;font-size:.85rem">Premium</span>
+            <span style="padding:4px 12px;border:1px solid var(--secondary);color:var(--secondary);border-radius:20px;font-size:.85rem">Limited</span>
+            <span style="padding:4px 12px;background:#28a745;color:#fff;border-radius:20px;font-size:.85rem">Active</span>
+            <span style="padding:4px 12px;background:#dc3545;color:#fff;border-radius:20px;font-size:.85rem">Expired</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section id="features" class="section">
       <div class="container" style="display:grid;gap:24px;grid-template-columns:1fr;align-items:center">
