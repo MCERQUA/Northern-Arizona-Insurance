@@ -19,9 +19,9 @@
 
 /* Minimal reset */
 *{box-sizing:border-box} html,body{margin:0;padding:0} img{max-width:100%;display:block}
-body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.55}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.6}
 .container{max-width:1100px;margin:0 auto;padding:0 24px}
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.1rem;border-radius:14px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.25rem;border-radius:8px;font-weight:500;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:all 0.2s ease;font-size:14px;letter-spacing:0.3px}
 .btn-accent{background:var(--accent);color:#fff}
 .btn-accent:hover{filter:brightness(0.95)}
 .btn-outline{border-color:var(--primary);color:var(--primary)}
@@ -51,14 +51,14 @@ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
   display:inline-flex;align-items:center;gap:8px;background:color-mix(in oklab,var(--surface),#fff 15%);
   padding:6px 10px;border-radius:999px;font-size:.8rem;border:1px solid #0001
 }
-.h1{font-size:clamp(32px,4vw,48px);font-weight:900;line-height:1.1;margin:12px 0}
+.h1{font-size:clamp(36px,4.5vw,52px);font-weight:700;line-height:1.2;margin:16px 0;letter-spacing:-0.5px}
 .lead{font-size:1.08rem;opacity:.9;margin:.6rem 0 0}
 .pills{display:flex;flex-wrap:wrap;gap:18px;margin-top:18px;font-size:.95rem;align-items:center}
 .pill{display:flex;align-items:center;gap:8px}
 .dot{display:inline-block;width:10px;height:10px;border-radius:50%}
 
-.card{background:color-mix(in oklab,var(--surface),#fff 10%);border:1px solid #0001;border-radius:18px;
-box-shadow:0 10px 30px -12px rgba(0,0,0,.15);padding:22px}
+.card{background:color-mix(in oklab,var(--surface),#fff 10%);border:1px solid rgba(0,0,0,0.06);border-radius:12px;
+box-shadow:0 4px 16px rgba(0,0,0,0.08);padding:24px;transition:all 0.3s ease}
 .form input,.form select,.form textarea{width:100%;border:1px solid #0002;background:#ffffffE6;padding:12px 14px;border-radius:12px;outline:none}
 .form input:focus,.form select:focus,.form textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px color-mix(in oklab,var(--primary),#fff 70%)}
 .form button{margin-top:6px}
@@ -74,8 +74,8 @@ box-shadow:0 10px 30px -12px rgba(0,0,0,.15);padding:22px}
 @media (min-width:700px){.grid.cols-2{grid-template-columns:repeat(2,1fr)}}}
 @media (min-width:1024px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
 
-.service{transition:box-shadow .2s ease, transform .2s ease}
-.service:hover{box-shadow:0 12px 34px -16px rgba(0,0,0,.25);transform:translateY(-2px)}
+.service{transition:box-shadow .3s ease, transform .3s ease}
+.service:hover{box-shadow:0 8px 24px rgba(0,0,0,0.12);transform:translateY(-4px)}
 .service .arrow{display:inline-grid;place-items:center;height:36px;width:36px;border-radius:12px;background:var(--accent);color:#fff;font-weight:800}
 .service .bar{height:4px;width:33%;border-radius:99px;background:var(--primary);transition:width .25s ease}
 .service:hover .bar{width:50%}
@@ -121,7 +121,12 @@ box-shadow:0 10px 30px -12px rgba(0,0,0,.15);padding:22px}
 
 /* FAQ Accordion styles */
 .card.open .open\:rotate{transform:rotate(45deg)}
-.card.open > div:last-child{max-height:200px !important}
+.card.open > div:last-child{max-height:300px !important}
+
+/* Professional hover effects */
+.btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,0.15)}
+.card:hover{box-shadow:0 6px 20px rgba(0,0,0,0.1)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(var(--primary),0.1)}
   </style>
 </head>
 <body>
@@ -225,10 +230,10 @@ box-shadow:0 10px 30px -12px rgba(0,0,0,.15);padding:22px}
               <span style="opacity:.7">/month</span>
             </div>
             <ul style="list-style:none;padding:0;margin:20px 0;text-align:left">
-              <li style="padding:8px 0;border-bottom:1px solid #0001">✓ 5 User Accounts</li>
-              <li style="padding:8px 0;border-bottom:1px solid #0001">✓ Basic Support</li>
-              <li style="padding:8px 0;border-bottom:1px solid #0001">✓ 10GB Storage</li>
-              <li style="padding:8px 0;border-bottom:1px solid #0001;opacity:.5">✗ Custom Domain</li>
+              <li style="padding:8px 0;border-bottom:1px solid #0001"><span style="color:var(--primary);font-weight:600;margin-right:8px">•</span>5 User Accounts</li>
+              <li style="padding:8px 0;border-bottom:1px solid #0001"><span style="color:var(--primary);font-weight:600;margin-right:8px">•</span>Basic Support</li>
+              <li style="padding:8px 0;border-bottom:1px solid #0001"><span style="color:var(--primary);font-weight:600;margin-right:8px">•</span>10GB Storage</li>
+              <li style="padding:8px 0;border-bottom:1px solid #0001;opacity:.5"><span style="margin-right:8px">-</span>Custom Domain</li>
             </ul>
             <button class="btn btn-outline" style="width:100%">Get Started</button>
           </div>
@@ -242,10 +247,10 @@ box-shadow:0 10px 30px -12px rgba(0,0,0,.15);padding:22px}
               <span style="opacity:.7">/month</span>
             </div>
             <ul style="list-style:none;padding:0;margin:20px 0;text-align:left">
-              <li style="padding:8px 0;border-bottom:1px solid #0001">✓ Unlimited Users</li>
-              <li style="padding:8px 0;border-bottom:1px solid #0001">✓ Priority Support</li>
-              <li style="padding:8px 0;border-bottom:1px solid #0001">✓ 100GB Storage</li>
-              <li style="padding:8px 0;border-bottom:1px solid #0001">✓ Custom Domain</li>
+              <li style="padding:8px 0;border-bottom:1px solid #0001"><span style="color:var(--primary);font-weight:600;margin-right:8px">•</span>Unlimited Users</li>
+              <li style="padding:8px 0;border-bottom:1px solid #0001"><span style="color:var(--primary);font-weight:600;margin-right:8px">•</span>Priority Support</li>
+              <li style="padding:8px 0;border-bottom:1px solid #0001"><span style="color:var(--primary);font-weight:600;margin-right:8px">•</span>100GB Storage</li>
+              <li style="padding:8px 0;border-bottom:1px solid #0001"><span style="color:var(--primary);font-weight:600;margin-right:8px">•</span>Custom Domain</li>
             </ul>
             <button class="btn btn-accent" style="width:100%">Get Started</button>
           </div>
@@ -258,10 +263,10 @@ box-shadow:0 10px 30px -12px rgba(0,0,0,.15);padding:22px}
               <span style="opacity:.7">/month</span>
             </div>
             <ul style="list-style:none;padding:0;margin:20px 0;text-align:left">
-              <li style="padding:8px 0;border-bottom:1px solid #0001">✓ Unlimited Everything</li>
-              <li style="padding:8px 0;border-bottom:1px solid #0001">✓ Dedicated Support</li>
-              <li style="padding:8px 0;border-bottom:1px solid #0001">✓ Unlimited Storage</li>
-              <li style="padding:8px 0;border-bottom:1px solid #0001">✓ Multiple Domains</li>
+              <li style="padding:8px 0;border-bottom:1px solid #0001"><span style="color:var(--primary);font-weight:600;margin-right:8px">•</span>Unlimited Everything</li>
+              <li style="padding:8px 0;border-bottom:1px solid #0001"><span style="color:var(--primary);font-weight:600;margin-right:8px">•</span>Dedicated Support</li>
+              <li style="padding:8px 0;border-bottom:1px solid #0001"><span style="color:var(--primary);font-weight:600;margin-right:8px">•</span>Unlimited Storage</li>
+              <li style="padding:8px 0;border-bottom:1px solid #0001"><span style="color:var(--primary);font-weight:600;margin-right:8px">•</span>Multiple Domains</li>
             </ul>
             <button class="btn" style="width:100%;background:var(--secondary);color:#fff">Contact Sales</button>
           </div>
@@ -277,21 +282,33 @@ box-shadow:0 10px 30px -12px rgba(0,0,0,.15);padding:22px}
 
         <div class="grid cols-3" style="gap:20px">
           <div class="card" style="text-align:center;padding:32px">
-            <div style="width:60px;height:60px;background:var(--primary);border-radius:50%;display:grid;place-items:center;margin:0 auto 16px;color:#fff;font-size:24px">⚡</div>
+            <div style="width:60px;height:60px;background:var(--primary);border-radius:16px;display:grid;place-items:center;margin:0 auto 16px">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+            </div>
             <h3 style="color:var(--primary);margin:0 0 12px">Fast Service</h3>
-            <p style="opacity:.8;font-size:.95rem">Quick turnaround times with same-day service available for urgent needs.</p>
+            <p style="opacity:.8;font-size:.95rem;line-height:1.6">Quick turnaround times with same-day service available for urgent needs.</p>
           </div>
 
           <div class="card" style="text-align:center;padding:32px">
-            <div style="width:60px;height:60px;background:var(--secondary);border-radius:50%;display:grid;place-items:center;margin:0 auto 16px;color:#fff;font-size:24px">🛡️</div>
+            <div style="width:60px;height:60px;background:var(--secondary);border-radius:16px;display:grid;place-items:center;margin:0 auto 16px">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
             <h3 style="color:var(--secondary);margin:0 0 12px">Secure & Reliable</h3>
-            <p style="opacity:.8;font-size:.95rem">Industry-leading security measures to protect your data and privacy.</p>
+            <p style="opacity:.8;font-size:.95rem;line-height:1.6">Industry-leading security measures to protect your data and privacy.</p>
           </div>
 
           <div class="card" style="text-align:center;padding:32px">
-            <div style="width:60px;height:60px;background:var(--accent);border-radius:50%;display:grid;place-items:center;margin:0 auto 16px;color:#fff;font-size:24px">📱</div>
+            <div style="width:60px;height:60px;background:var(--accent);border-radius:16px;display:grid;place-items:center;margin:0 auto 16px">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+              </svg>
+            </div>
             <h3 style="color:var(--accent);margin:0 0 12px">24/7 Support</h3>
-            <p style="opacity:.8;font-size:.95rem">Round-the-clock customer support whenever you need assistance.</p>
+            <p style="opacity:.8;font-size:.95rem;line-height:1.6">Round-the-clock customer support whenever you need assistance.</p>
           </div>
         </div>
       </div>
@@ -304,8 +321,22 @@ box-shadow:0 10px 30px -12px rgba(0,0,0,.15);padding:22px}
 
         <div class="grid cols-2" style="gap:24px">
           <div class="card" style="padding:28px">
-            <div style="display:flex;gap:8px;margin-bottom:12px;color:var(--accent)">
-              ★★★★★
+            <div style="display:flex;gap:4px;margin-bottom:12px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--accent)">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--accent)">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--accent)">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--accent)">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--accent)">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
             </div>
             <p style="font-style:italic;margin-bottom:16px">"Outstanding service! They exceeded our expectations and delivered on time. Highly recommend for any business."</p>
             <div style="display:flex;align-items:center;gap:12px">
@@ -318,8 +349,22 @@ box-shadow:0 10px 30px -12px rgba(0,0,0,.15);padding:22px}
           </div>
 
           <div class="card" style="padding:28px">
-            <div style="display:flex;gap:8px;margin-bottom:12px;color:var(--accent)">
-              ★★★★★
+            <div style="display:flex;gap:4px;margin-bottom:12px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--accent)">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--accent)">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--accent)">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--accent)">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--accent)">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
             </div>
             <p style="font-style:italic;margin-bottom:16px">"Professional, reliable, and affordable. They transformed our business processes and saved us valuable time."</p>
             <div style="display:flex;align-items:center;gap:12px">
@@ -368,7 +413,12 @@ box-shadow:0 10px 30px -12px rgba(0,0,0,.15);padding:22px}
 
             <div style="display:grid;gap:16px">
               <div class="card" style="display:flex;align-items:center;gap:16px;padding:20px">
-                <div style="width:48px;height:48px;background:var(--primary);border-radius:12px;display:grid;place-items:center;color:#fff;font-size:20px">📍</div>
+                <div style="width:48px;height:48px;background:var(--primary);border-radius:12px;display:grid;place-items:center">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                </div>
                 <div>
                   <div style="font-weight:600">Office Location</div>
                   <div style="opacity:.8;font-size:.95rem">123 Business Ave, Suite 100<br>City, State 12345</div>
@@ -376,7 +426,12 @@ box-shadow:0 10px 30px -12px rgba(0,0,0,.15);padding:22px}
               </div>
 
               <div class="card" style="display:flex;align-items:center;gap:16px;padding:20px">
-                <div style="width:48px;height:48px;background:var(--secondary);border-radius:12px;display:grid;place-items:center;color:#fff;font-size:20px">📧</div>
+                <div style="width:48px;height:48px;background:var(--secondary);border-radius:12px;display:grid;place-items:center">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                  </svg>
+                </div>
                 <div>
                   <div style="font-weight:600">Email Us</div>
                   <div style="opacity:.8;font-size:.95rem">info@business.com<br>support@business.com</div>
@@ -384,7 +439,11 @@ box-shadow:0 10px 30px -12px rgba(0,0,0,.15);padding:22px}
               </div>
 
               <div class="card" style="display:flex;align-items:center;gap:16px;padding:20px">
-                <div style="width:48px;height:48px;background:var(--accent);border-radius:12px;display:grid;place-items:center;color:#fff;font-size:20px">📞</div>
+                <div style="width:48px;height:48px;background:var(--accent);border-radius:12px;display:grid;place-items:center">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+                  </svg>
+                </div>
                 <div>
                   <div style="font-weight:600">Call Us</div>
                   <div style="opacity:.8;font-size:.95rem">Main: (555) 123-4567<br>Support: (555) 123-4568</div>
@@ -392,7 +451,12 @@ box-shadow:0 10px 30px -12px rgba(0,0,0,.15);padding:22px}
               </div>
 
               <div class="card" style="display:flex;align-items:center;gap:16px;padding:20px">
-                <div style="width:48px;height:48px;background:var(--primary);border-radius:12px;display:grid;place-items:center;color:#fff;font-size:20px">🕒</div>
+                <div style="width:48px;height:48px;background:var(--primary);border-radius:12px;display:grid;place-items:center">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                </div>
                 <div>
                   <div style="font-weight:600">Business Hours</div>
                   <div style="opacity:.8;font-size:.95rem">Mon-Fri: 9AM - 6PM<br>Sat-Sun: 10AM - 4PM</div>
@@ -469,8 +533,8 @@ box-shadow:0 10px 30px -12px rgba(0,0,0,.15);padding:22px}
             <button class="btn" style="background:var(--secondary);color:#fff">Secondary</button>
             <button class="btn btn-outline">Outline Button</button>
             <button class="btn" style="background:var(--surface);color:var(--ink)">Subtle</button>
-            <button class="btn" style="background:#28a745;color:#fff">✓ Success</button>
-            <button class="btn" style="background:#dc3545;color:#fff">⚠ Warning</button>
+            <button class="btn" style="background:#28a745;color:#fff">Success</button>
+            <button class="btn" style="background:#dc3545;color:#fff">Warning</button>
             <button class="btn" disabled style="opacity:.5;cursor:not-allowed">Disabled</button>
           </div>
         </div>
@@ -607,7 +671,7 @@ box-shadow:0 10px 30px -12px rgba(0,0,0,.15);padding:22px}
     <div class="container cols">
       <div>
         <div style="font-size:1.1rem;font-weight:800">ColorCraft</div>
-        <p style="margin:.4rem 0 0;opacity:.9">Design perfect palettes. Build better brands.</p>
+        <p style="margin:.4rem 0 0;opacity:.9;font-size:.95rem">Professional color palette generator for modern web design.</p>
       </div>
       <div>
         <div style="font-weight:700;margin-bottom:8px">Features</div>
@@ -630,7 +694,7 @@ box-shadow:0 10px 30px -12px rgba(0,0,0,.15);padding:22px}
   <div id="color-picker-panel" style="position: fixed; right: 16px; bottom: 16px; background: #fff; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); padding: 20px; max-width: 320px; z-index: 100;">
     <!-- Theme Selector -->
     <div style="margin-bottom: 20px;">
-      <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #333;">Choose a Theme:</label>
+      <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #444; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">Select Theme</label>
       <select id="theme-selector" style="width: 100%; padding: 8px 12px; border: 1px solid #ddd; border-radius: 8px; background: white; cursor: pointer;">
         <option value="default">Saguaro Sunset (Default)</option>
         <option value="ocean">Ocean Breeze</option>
@@ -717,10 +781,10 @@ box-shadow:0 10px 30px -12px rgba(0,0,0,.15);padding:22px}
     </div>
 
     <!-- Reset Button -->
-    <button id="reset-colors" style="width: 100%; margin-top: 16px; padding: 10px; background: #f0f0f0; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; font-size: 14px; color: #666; transition: background 0.2s;">Reset to Default</button>
+    <button id="reset-colors" style="width: 100%; margin-top: 16px; padding: 12px; background: #f8f8f8; border: 1px solid #e0e0e0; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500; color: #555; transition: all 0.2s; text-transform: uppercase; letter-spacing: 0.5px;">Reset Default</button>
 
     <!-- Toggle Button for Mobile -->
-    <button id="toggle-panel" style="position: absolute; top: -40px; right: 0; background: white; border: 1px solid #ddd; border-radius: 8px 8px 0 0; padding: 8px 16px; font-size: 12px; cursor: pointer; display: none;">🎨 Colors</button>
+    <button id="toggle-panel" style="position: absolute; top: -40px; right: 0; background: white; border: 1px solid #ddd; border-radius: 8px 8px 0 0; padding: 8px 16px; font-size: 12px; cursor: pointer; display: none;">Colors</button>
   </div>
 
   <script>
