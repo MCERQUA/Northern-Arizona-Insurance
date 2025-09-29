@@ -385,7 +385,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
         <div class="grid cols-2" style="gap:40px;align-items:start">
           <!-- Contact Form -->
           <div>
-            <h2 style="margin:0 0 8px">Get In Touch</h2>
+            <h3 style="margin:0 0 8px">Get In Touch</h3>
             <p style="opacity:.8;margin-bottom:24px">Send us a message and we'll respond within 24 hours.</p>
 
             <form class="form" style="display:grid;gap:16px">
@@ -780,11 +780,106 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
       </div>
     </div>
 
-    <!-- Reset Button -->
-    <button id="reset-colors" style="width: 100%; margin-top: 16px; padding: 12px; background: #f8f8f8; border: 1px solid #e0e0e0; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500; color: #555; transition: all 0.2s; text-transform: uppercase; letter-spacing: 0.5px;">Reset Default</button>
+    <!-- Submit Color Theme Button -->
+    <button id="submit-colors" style="width: 100%; margin-top: 16px; padding: 12px; background: var(--primary); border: none; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500; color: white; transition: all 0.2s; text-transform: uppercase; letter-spacing: 0.5px;">Submit Color Theme</button>
+
+    <!-- Reset link -->
+    <a href="#" id="reset-link" style="display: block; text-align: center; margin-top: 8px; font-size: 12px; color: #888; text-decoration: none;">Reset to default</a>
 
     <!-- Toggle Button for Mobile -->
     <button id="toggle-panel" style="position: absolute; top: -40px; right: 0; background: white; border: 1px solid #ddd; border-radius: 8px 8px 0 0; padding: 8px 16px; font-size: 12px; cursor: pointer; display: none;">Colors</button>
+  </div>
+
+  <!-- Color Submission Modal -->
+  <div id="color-modal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6); z-index: 1000; align-items: center; justify-content: center;">
+    <div style="background: white; border-radius: 16px; padding: 32px; max-width: 500px; width: 90%; max-height: 90vh; overflow-y: auto; position: relative;">
+      <!-- Close button -->
+      <button onclick="closeColorModal()" style="position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 24px; cursor: pointer; color: #888;">&times;</button>
+
+      <h2 style="margin: 0 0 8px; color: var(--ink);">Submit Your Color Theme</h2>
+      <p style="margin: 0 0 24px; opacity: 0.8;">Share your selected color palette for your website project.</p>
+
+      <!-- Color Preview -->
+      <div style="background: #f8f8f8; border-radius: 8px; padding: 16px; margin-bottom: 24px;">
+        <h3 style="margin: 0 0 12px; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; color: #666;">Selected Colors</h3>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+          <div>
+            <div id="preview-primary" style="height: 40px; border-radius: 6px; margin-bottom: 4px;"></div>
+            <div style="font-size: 11px; color: #666;">Primary</div>
+            <div id="text-preview-primary" style="font-size: 12px; font-weight: 500;"></div>
+          </div>
+          <div>
+            <div id="preview-secondary" style="height: 40px; border-radius: 6px; margin-bottom: 4px;"></div>
+            <div style="font-size: 11px; color: #666;">Secondary</div>
+            <div id="text-preview-secondary" style="font-size: 12px; font-weight: 500;"></div>
+          </div>
+          <div>
+            <div id="preview-accent" style="height: 40px; border-radius: 6px; margin-bottom: 4px;"></div>
+            <div style="font-size: 11px; color: #666;">Accent</div>
+            <div id="text-preview-accent" style="font-size: 12px; font-weight: 500;"></div>
+          </div>
+          <div>
+            <div id="preview-bg" style="height: 40px; border-radius: 6px; margin-bottom: 4px; border: 1px solid #ddd;"></div>
+            <div style="font-size: 11px; color: #666;">Background</div>
+            <div id="text-preview-bg" style="font-size: 12px; font-weight: 500;"></div>
+          </div>
+          <div>
+            <div id="preview-surface" style="height: 40px; border-radius: 6px; margin-bottom: 4px;"></div>
+            <div style="font-size: 11px; color: #666;">Surface</div>
+            <div id="text-preview-surface" style="font-size: 12px; font-weight: 500;"></div>
+          </div>
+          <div>
+            <div id="preview-ink" style="height: 40px; border-radius: 6px; margin-bottom: 4px;"></div>
+            <div style="font-size: 11px; color: #666;">Text (Ink)</div>
+            <div id="text-preview-ink" style="font-size: 12px; font-weight: 500;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Netlify Form -->
+      <form name="color-theme-submission" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/index.html?color-submitted=true">
+        <!-- Hidden fields for Netlify -->
+        <input type="hidden" name="form-name" value="color-theme-submission">
+        <input type="hidden" name="bot-field">
+
+        <!-- Hidden color fields -->
+        <input type="hidden" name="primary-color" id="form-primary">
+        <input type="hidden" name="secondary-color" id="form-secondary">
+        <input type="hidden" name="accent-color" id="form-accent">
+        <input type="hidden" name="background-color" id="form-bg">
+        <input type="hidden" name="surface-color" id="form-surface">
+        <input type="hidden" name="text-color" id="form-ink">
+        <input type="hidden" name="theme-name" id="form-theme">
+
+        <!-- User input fields -->
+        <div style="display: grid; gap: 16px;">
+          <div>
+            <label style="display: block; margin-bottom: 6px; font-size: 14px; font-weight: 500; color: #444;">Your Name *</label>
+            <input type="text" name="name" required style="width: 100%; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px;">
+          </div>
+
+          <div>
+            <label style="display: block; margin-bottom: 6px; font-size: 14px; font-weight: 500; color: #444;">Email Address *</label>
+            <input type="email" name="email" required style="width: 100%; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px;">
+          </div>
+
+          <div>
+            <label style="display: block; margin-bottom: 6px; font-size: 14px; font-weight: 500; color: #444;">Website URL *</label>
+            <input type="url" name="website-url" placeholder="https://example.com" required style="width: 100%; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px;">
+          </div>
+
+          <div>
+            <label style="display: block; margin-bottom: 6px; font-size: 14px; font-weight: 500; color: #444;">Additional Notes (Optional)</label>
+            <textarea name="notes" rows="3" style="width: 100%; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; resize: vertical;"></textarea>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 12px; margin-top: 24px;">
+          <button type="submit" style="flex: 1; padding: 12px; background: var(--primary); color: white; border: none; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px;">Submit Color Theme</button>
+          <button type="button" onclick="closeColorModal()" style="padding: 12px 24px; background: #f0f0f0; color: #666; border: none; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer;">Cancel</button>
+        </div>
+      </form>
+    </div>
   </div>
 
   <script>
@@ -1080,11 +1175,72 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
     });
   });
 
-  // Reset button
-  document.getElementById('reset-colors').addEventListener('click', () => {
+  // Submit Color Theme button
+  document.getElementById('submit-colors').addEventListener('click', () => {
+    // Get current colors
+    const colors = {
+      primary: document.getElementById('color-primary').value,
+      secondary: document.getElementById('color-secondary').value,
+      accent: document.getElementById('color-accent').value,
+      bg: document.getElementById('color-bg').value,
+      surface: document.getElementById('color-surface').value,
+      ink: document.getElementById('color-ink').value
+    };
+
+    // Update preview in modal
+    Object.keys(colors).forEach(key => {
+      const previewEl = document.getElementById(`preview-${key}`);
+      const textEl = document.getElementById(`text-preview-${key}`);
+      const formInput = document.getElementById(`form-${key}`);
+
+      if (previewEl) previewEl.style.background = colors[key];
+      if (textEl) textEl.textContent = colors[key];
+      if (formInput) formInput.value = colors[key];
+    });
+
+    // Set theme name
+    const themeSelect = document.getElementById('theme-selector');
+    const themeName = themeSelect.options[themeSelect.selectedIndex].text;
+    document.getElementById('form-theme').value = themeName;
+
+    // Show modal
+    const modal = document.getElementById('color-modal');
+    modal.style.display = 'flex';
+  });
+
+  // Reset link
+  document.getElementById('reset-link').addEventListener('click', (e) => {
+    e.preventDefault();
     applyTheme('default');
     document.getElementById('theme-selector').value = 'default';
   });
+
+  // Close modal function
+  function closeColorModal() {
+    document.getElementById('color-modal').style.display = 'none';
+  }
+
+  // Close modal on background click
+  document.getElementById('color-modal').addEventListener('click', (e) => {
+    if (e.target === document.getElementById('color-modal')) {
+      closeColorModal();
+    }
+  });
+
+  // Check for form submission success
+  if(window.location.search.includes('color-submitted=true')) {
+    // Show success message
+    const successDiv = document.createElement('div');
+    successDiv.style.cssText = 'position: fixed; top: 20px; right: 20px; background: #28a745; color: white; padding: 16px 24px; border-radius: 8px; z-index: 2000; box-shadow: 0 4px 12px rgba(0,0,0,0.15);';
+    successDiv.innerHTML = '<strong>Success!</strong> Your color theme has been submitted.';
+    document.body.appendChild(successDiv);
+
+    setTimeout(() => {
+      successDiv.remove();
+      // Clean URL
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }, 5000);
+  }
 
   // Mobile responsiveness for color panel
   const panel = document.getElementById('color-picker-panel');
